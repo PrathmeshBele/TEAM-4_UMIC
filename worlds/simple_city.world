@@ -128,6 +128,172 @@
       </link>
     </model>
 
+    <!-- balls -->
+
+<model name="sphere">
+  <pose>-10 45 0 0 0 0</pose>
+
+    <link name="link">
+      <collision name="body_collision">
+        <geometry>
+          <sphere>
+            <radius>0.05</radius>
+          </sphere>
+        </geometry>
+      </collision>
+      <visual name="v1">
+        <material>
+            <ambient>1 0 0 1.0</ambient>
+            <diffuse>1 0 0 1.0</diffuse>
+            <specular>1 0 0 1.0</specular>
+            <emissive>1 0 0 1.0</emissive>
+          </material>
+        <geometry>
+          <sphere>
+            <radius>0.1</radius>
+          </sphere>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+
+
+  <model name="sphere">
+  <pose>-15 35 0 0 0 0</pose>
+
+    <link name="link">
+      <collision name="body_collision">
+        <geometry>
+          <sphere>
+            <radius>0.05</radius>
+          </sphere>
+        </geometry>
+      </collision>
+      <visual name="v1">
+        <material>
+            <ambient>0 1 0 1.0</ambient>
+            <diffuse>0 1 0 1.0</diffuse>
+            <specular>0 1 0 1.0</specular>
+            <emissive>0 1 0 1.0</emissive>
+          </material>
+        <geometry>
+          <sphere>
+            <radius>0.1</radius>
+          </sphere>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+
+
+  <model name="sphere">
+  <pose>-15 40 0 0 0 0</pose>
+
+    <link name="link">
+      <collision name="body_collision">
+        <geometry>
+          <sphere>
+            <radius>0.05</radius>
+          </sphere>
+        </geometry>
+      </collision>
+      <visual name="v1">
+        <material>
+            <ambient>0 1 0 1.0</ambient>
+            <diffuse>0 1 0 1.0</diffuse>
+            <specular>0 1 0 1.0</specular>
+            <emissive>0 1 0 1.0</emissive>
+          </material>
+        <geometry>
+          <sphere>
+            <radius>0.1</radius>
+          </sphere>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+
+  <model name="sphere">
+  <pose>-15 45 0 0 0 0</pose>
+
+    <link name="link">
+      <collision name="body_collision">
+        <geometry>
+          <sphere>
+            <radius>0.05</radius>
+          </sphere>
+        </geometry>
+      </collision>
+      <visual name="v1">
+        <material>
+            <ambient>1 0 0 1.0</ambient>
+            <diffuse>1 0 0 1.0</diffuse>
+            <specular>1 0 0 1.0</specular>
+            <emissive>1 0 0 1.0</emissive>
+          </material>
+        <geometry>
+          <sphere>
+            <radius>0.1</radius>
+          </sphere>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+
+    <model name="sphere">
+  <pose>-15 25 0 0 0 0</pose>
+
+    <link name="link">
+      <collision name="body_collision">
+        <geometry>
+          <sphere>
+            <radius>0.05</radius>
+          </sphere>
+        </geometry>
+      </collision>
+      <visual name="v1">
+        <material>
+            <ambient>1 0 0 1.0</ambient>
+            <diffuse>1 0 0 1.0</diffuse>
+            <specular>1 0 0 1.0</specular>
+            <emissive>1 0 0 1.0</emissive>
+          </material>
+        <geometry>
+          <sphere>
+            <radius>0.1</radius>
+          </sphere>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+
+  <model name="sphere">
+  <pose>-20 0 0 0 0 0</pose>
+
+    <link name="link">
+      <collision name="body_collision">
+        <geometry>
+          <sphere>
+            <radius>0.05</radius>
+          </sphere>
+        </geometry>
+      </collision>
+      <visual name="v1">
+        <material>
+            <ambient>1 0 0 1.0</ambient>
+            <diffuse>1 0 0 1.0</diffuse>
+            <specular>1 0 0 1.0</specular>
+            <emissive>1 0 0 1.0</emissive>
+          </material>
+        <geometry>
+          <sphere>
+            <radius>0.1</radius>
+          </sphere>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+
 
     <!-- Environment -->
     <include>
@@ -160,7 +326,7 @@
     
 
     <road name="road_y_1">
-      <width>7.4</width>
+      <width>2</width>
       <point>-45 -103.7 5.02</point>
       <point>-45 104.2 5.02</point>
 
@@ -170,7 +336,7 @@
     
 
     <road name="road_y_2">
-      <width>7.4</width>
+      <width>2</width>
       <point>-15 -103.7 5.02</point>
       <point>-15 104.2 5.02</point>
 
@@ -187,7 +353,7 @@
     
 
     <road name="road_y_3">
-      <width>7.4</width>
+      <width>2</width>
       <point>45 -103.7 5.02</point>
       <point>45 104.2 5.02</point>
 
@@ -204,7 +370,7 @@
     
 
     <road name="road_y_4">
-      <width>7.4</width>
+      <width>2</width>
       <point>110 -103.7 5.02</point>
       <point>110 104.2 5.02</point>
 
@@ -221,7 +387,7 @@
     
 
     <road name="road_y_5">
-      <width>7.4</width>
+      <width>2</width>
       <point>120 -103.7 5.02</point>
       <point>120 104.2 5.02</point>
 
@@ -232,7 +398,7 @@
 
     <road name="road_x_1">
 
-      <width>8.4</width>
+      <width>2</width>
       <point>-41.3 -100 5.0249999999999995</point>
       <point>116.3 -100 5.0249999999999995</point>
 
@@ -243,7 +409,7 @@
 
     <road name="road_x_2">
 
-      <width>8.4</width>
+      <width>2</width>
       <point>-41.3 -45 5.0249999999999995</point>
       <point>116.3 -45 5.0249999999999995</point>
 
@@ -261,7 +427,7 @@
 
     <road name="road_x_3">
 
-      <width>8.4</width>
+      <width>2</width>
       <point>-41.3 0 5.0249999999999995</point>
       <point>116.3 0 5.0249999999999995</point>
 
@@ -272,7 +438,7 @@
 
     <road name="road_x_4">
 
-      <width>8.4</width>
+      <width>2</width>
       <point>-41.3 45 5.0249999999999995</point>
       <point>116.3 45 5.0249999999999995</point>
 
@@ -290,13 +456,15 @@
 
     <road name="road_x_5">
 
-      <width>8.4</width>
+      <width>2</width>
       <point>-41.3 100 5.0249999999999995</point>
       <point>116.3 100 5.0249999999999995</point>
 
       
 
     </road>
+
+    
     
 
 
