@@ -1,0 +1,380 @@
+
+    
+          <include>
+      <name>hatchback_594</name>
+      <pose>
+      -17.55
+      -84.30815334714316
+      5.01
+      0
+      0
+      1.5707963267948966
+      </pose>
+      <uri>model://hatchback</uri>
+    </include>
+
+          <include>
+      <name>hatchback_red_595</name>
+      <pose>
+      -12.450000000000001
+      -76.90941410465881
+      5.01
+      0
+      0
+      1.5707963267948966
+      </pose>
+      <uri>model://hatchback_red</uri>
+    </include>
+
+    
+          <include>
+      <name>hatchback_red_596</name>
+      <pose>
+      42.449999999999996
+      -72.98660164699623
+      5.01
+      0
+      0
+      -1.5707963267948966
+      </pose>
+      <uri>model://hatchback_red</uri>
+    </include>
+
+          <include>
+      <name>pickup_597</name>
+      <pose>
+      47.550000000000004
+      -88.58571244483804
+      5.01
+      0
+      0
+      -1.5707963267948966
+      </pose>
+      <uri>model://pickup</uri>
+    </include>
+
+    
+          <include>
+      <name>pickup_598</name>
+      <pose>
+      -17.55
+      -35.850344924769296
+      5.01
+      0
+      0
+      1.5707963267948966
+      </pose>
+      <uri>model://pickup</uri>
+    </include>
+
+          <include>
+      <name>pickup_599</name>
+      <pose>
+      -12.450000000000001
+      -13.762088529673171
+      5.01
+      0
+      0
+      1.5707963267948966
+      </pose>
+      <uri>model://pickup</uri>
+    </include>
+
+    
+          <include>
+      <name>hatchback_red_600</name>
+      <pose>
+      42.449999999999996
+      -30.251955317278806
+      5.01
+      0
+      0
+      -1.5707963267948966
+      </pose>
+      <uri>model://hatchback_red</uri>
+    </include>
+
+          <include>
+      <name>pickup_601</name>
+      <pose>
+      47.550000000000004
+      -34.86364132078475
+      5.01
+      0
+      0
+      -1.5707963267948966
+      </pose>
+      <uri>model://pickup</uri>
+    </include>
+
+    
+          <include>
+      <name>hatchback_602</name>
+      <pose>
+      -17.55
+      15.449777321036978
+      5.01
+      0
+      0
+      1.5707963267948966
+      </pose>
+      <uri>model://hatchback</uri>
+    </include>
+
+          <include>
+      <name>hatchback_red_603</name>
+      <pose>
+      -12.450000000000001
+      35.493543486655724
+      5.01
+      0
+      0
+      1.5707963267948966
+      </pose>
+      <uri>model://hatchback_red</uri>
+    </include>
+
+    
+          <include>
+      <name>hatchback_blue_604</name>
+      <pose>
+      42.449999999999996
+      30.4802990891103
+      5.01
+      0
+      0
+      -1.5707963267948966
+      </pose>
+      <uri>model://hatchback_blue</uri>
+    </include>
+
+          <include>
+      <name>pickup_605</name>
+      <pose>
+      47.550000000000004
+      9.006685891863139
+      5.01
+      0
+      0
+      -1.5707963267948966
+      </pose>
+      <uri>model://pickup</uri>
+    </include>
+
+    
+          <include>
+      <name>hatchback_606</name>
+      <pose>
+      -17.55
+      74.56714590142099
+      5.01
+      0
+      0
+      1.5707963267948966
+      </pose>
+      <uri>model://hatchback</uri>
+    </include>
+
+          <include>
+      <name>hatchback_red_607</name>
+      <pose>
+      -12.450000000000001
+      64.11617020920019
+      5.01
+      0
+      0
+      1.5707963267948966
+      </pose>
+      <uri>model://hatchback_red</uri>
+    </include>
+
+    
+          <include>
+      <name>pickup_608</name>
+      <pose>
+      42.449999999999996
+      82.17653808378716
+      5.01
+      0
+      0
+      -1.5707963267948966
+      </pose>
+      <uri>model://pickup</uri>
+    </include>
+
+          <include>
+      <name>pickup_609</name>
+      <pose>
+      47.550000000000004
+      61.78827871275479
+      5.01
+      0
+      0
+      -1.5707963267948966
+      </pose>
+      <uri>model://pickup</uri>
+    </include>
+
+    
+
+    
+          <include>
+      <name>hatchback_red_610</name>
+      <pose>
+      -38.28359469394081
+      -47.550000000000004
+      5.01
+      0
+      0
+      0
+      </pose>
+      <uri>model://hatchback_red</uri>
+    </include>
+
+          <include>
+      <name>suv_611</name>
+      <pose>
+      -30.995013566477972
+      -42.449999999999996
+      5.01
+      0
+      0
+      0
+      </pose>
+      <uri>model://suv</uri>
+    </include>
+
+    
+          <include>
+      <name>suv_612</name>
+      <pose>
+      -28.392418415377435
+      42.449999999999996
+      5.01
+      0
+      0
+      3.141592653589793
+      </pose>
+      <uri>model://suv</uri>
+    </include>
+
+          <include>
+      <name>hatchback_613</name>
+      <pose>
+      -35.70297278053215
+      47.550000000000004
+      5.01
+      0
+      0
+      3.141592653589793
+      </pose>
+      <uri>model://hatchback</uri>
+    </include>
+
+    
+          <include>
+      <name>hatchback_red_614</name>
+      <pose>
+      13.550161277951418
+      -47.550000000000004
+      5.01
+      0
+      0
+      0
+      </pose>
+      <uri>model://hatchback_red</uri>
+    </include>
+
+          <include>
+      <name>hatchback_615</name>
+      <pose>
+      3.9210049015486064
+      -42.449999999999996
+      5.01
+      0
+      0
+      0
+      </pose>
+      <uri>model://hatchback</uri>
+    </include>
+
+    
+          <include>
+      <name>suv_616</name>
+      <pose>
+      4.731505253206375
+      42.449999999999996
+      5.01
+      0
+      0
+      3.141592653589793
+      </pose>
+      <uri>model://suv</uri>
+    </include>
+
+          <include>
+      <name>hatchback_blue_617</name>
+      <pose>
+      32.52218043235088
+      47.550000000000004
+      5.01
+      0
+      0
+      3.141592653589793
+      </pose>
+      <uri>model://hatchback_blue</uri>
+    </include>
+
+    
+          <include>
+      <name>hatchback_618</name>
+      <pose>
+      76.23657454655991
+      -47.550000000000004
+      5.01
+      0
+      0
+      0
+      </pose>
+      <uri>model://hatchback</uri>
+    </include>
+
+          <include>
+      <name>pickup_619</name>
+      <pose>
+      77.74172946469213
+      -42.449999999999996
+      5.01
+      0
+      0
+      0
+      </pose>
+      <uri>model://pickup</uri>
+    </include>
+
+    
+          <include>
+      <name>suv_620</name>
+      <pose>
+      71.59968161496802
+      42.449999999999996
+      5.01
+      0
+      0
+      3.141592653589793
+      </pose>
+      <uri>model://suv</uri>
+    </include>
+
+          <include>
+      <name>hatchback_blue_621</name>
+      <pose>
+      85.00302163698595
+      47.550000000000004
+      5.01
+      0
+      0
+      3.141592653589793
+      </pose>
+      <uri>model://hatchback_blue</uri>
+    </include>

@@ -1,0 +1,255 @@
+<actor name="car_622">
+        <pose>-43.15 -90 5.01 0 0 0</pose>
+        <include>
+      <name>hatchback_red_623</name>
+      <pose>
+      0
+      0
+      0.0
+      0
+      0
+      1.5707963267948966
+      </pose>
+      <uri>model://hatchback_red</uri>
+    </include>
+
+        <script>
+          <trajectory id="0" type="animation">
+            
+              <waypoint>
+                <time>0</time>
+                <pose>-43.15 -90 5.01 0 0 0</pose>
+              </waypoint>
+            
+              <waypoint>
+                <time>20</time>
+                <pose>-43.15 100 5.01 0 0 0</pose>
+              </waypoint>
+            
+          </trajectory>
+        </script>
+      </actor>
+    
+      <actor name="car_624">
+        <pose>-46.85 100 5.01 0 0 3.141592653589793</pose>
+        <include>
+      <name>pickup_625</name>
+      <pose>
+      0
+      0
+      0.0
+      0
+      0
+      1.5707963267948966
+      </pose>
+      <uri>model://pickup</uri>
+    </include>
+
+        <script>
+          <trajectory id="0" type="animation">
+            
+              <waypoint>
+                <time>0</time>
+                <pose>-46.85 100 5.01 0 0 3.141592653589793</pose>
+              </waypoint>
+            
+              <waypoint>
+                <time>43</time>
+                <pose>-46.85 -90 5.01 0 0 3.141592653589793</pose>
+              </waypoint>
+            
+          </trajectory>
+        </script>
+      </actor>
+    
+      <actor name="car_626">
+        <pose>-15 -100 5.01 0 0 0</pose>
+        <include>
+      <name>pickup_627</name>
+      <pose>
+      0
+      0
+      0.0
+      0
+      0
+      1.5707963267948966
+      </pose>
+      <uri>model://pickup</uri>
+    </include>
+
+        <script>
+          <trajectory id="0" type="animation">
+            
+              <waypoint>
+                <time>0</time>
+                <pose>-15 -100 5.01 0 0 0</pose>
+              </waypoint>
+            
+              <waypoint>
+                <time>23</time>
+                <pose>-15 100 5.01 0 0 0</pose>
+              </waypoint>
+            
+          </trajectory>
+        </script>
+      </actor>
+    
+      <actor name="car_628">
+        <pose>45 100 5.01 0 0 3.141592653589793</pose>
+        <include>
+      <name>hatchback_629</name>
+      <pose>
+      0
+      0
+      0.0
+      0
+      0
+      1.5707963267948966
+      </pose>
+      <uri>model://hatchback</uri>
+    </include>
+
+        <script>
+          <trajectory id="0" type="animation">
+            
+              <waypoint>
+                <time>0</time>
+                <pose>45 100 5.01 0 0 3.141592653589793</pose>
+              </waypoint>
+            
+              <waypoint>
+                <time>29</time>
+                <pose>45 -100 5.01 0 0 3.141592653589793</pose>
+              </waypoint>
+            
+          </trajectory>
+        </script>
+      </actor>
+    
+      <actor name="car_630">
+        <pose>108.15 100 5.01 0 0 3.141592653589793</pose>
+        <include>
+      <name>suv_631</name>
+      <pose>
+      0
+      0
+      0.0
+      0
+      0
+      1.5707963267948966
+      </pose>
+      <uri>model://suv</uri>
+    </include>
+
+        <script>
+          <trajectory id="0" type="animation">
+            
+              <waypoint>
+                <time>0</time>
+                <pose>108.15 100 5.01 0 0 3.141592653589793</pose>
+              </waypoint>
+            
+              <waypoint>
+                <time>39</time>
+                <pose>108.15 -100 5.01 0 0 3.141592653589793</pose>
+              </waypoint>
+            
+          </trajectory>
+        </script>
+      </actor>
+    
+      <actor name="car_632">
+        <pose>111.85 100 5.01 0 0 3.141592653589793</pose>
+        <include>
+      <name>hatchback_633</name>
+      <pose>
+      0
+      0
+      0.0
+      0
+      0
+      1.5707963267948966
+      </pose>
+      <uri>model://hatchback</uri>
+    </include>
+
+        <script>
+          <trajectory id="0" type="animation">
+            
+              <waypoint>
+                <time>0</time>
+                <pose>111.85 100 5.01 0 0 3.141592653589793</pose>
+              </waypoint>
+            
+              <waypoint>
+                <time>23</time>
+                <pose>111.85 -100 5.01 0 0 3.141592653589793</pose>
+              </waypoint>
+            
+          </trajectory>
+        </script>
+      </actor>
+    
+      <actor name="car_634">
+        <pose>118.15 -100 5.01 0 0 0</pose>
+        <include>
+      <name>pickup_635</name>
+      <pose>
+      0
+      0
+      0.0
+      0
+      0
+      1.5707963267948966
+      </pose>
+      <uri>model://pickup</uri>
+    </include>
+
+        <script>
+          <trajectory id="0" type="animation">
+            
+              <waypoint>
+                <time>0</time>
+                <pose>118.15 -100 5.01 0 0 0</pose>
+              </waypoint>
+            
+              <waypoint>
+                <time>36</time>
+                <pose>118.15 100 5.01 0 0 0</pose>
+              </waypoint>
+            
+          </trajectory>
+        </script>
+      </actor>
+    
+      <actor name="car_636">
+        <pose>121.85 -100 5.01 0 0 0</pose>
+        <include>
+      <name>pickup_637</name>
+      <pose>
+      0
+      0
+      0.0
+      0
+      0
+      1.5707963267948966
+      </pose>
+      <uri>model://pickup</uri>
+    </include>
+
+        <script>
+          <trajectory id="0" type="animation">
+            
+              <waypoint>
+                <time>0</time>
+                <pose>121.85 -100 5.01 0 0 0</pose>
+              </waypoint>
+            
+              <waypoint>
+                <time>41</time>
+                <pose>121.85 100 5.01 0 0 0</pose>
+              </waypoint>
+            
+          </trajectory>
+        </script>
+      </actor>
