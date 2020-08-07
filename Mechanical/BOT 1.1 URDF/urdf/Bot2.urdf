@@ -1,0 +1,1102 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<robot name="Bot.SLDASM">
+
+
+  <link name="base_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="14.204" />
+      <inertia
+        ixx="1.0"
+        ixy="1.0"
+        ixz="1.0"
+        iyy="1.0"
+        iyz="1.0"
+        izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://Bot.SLDASM/meshes/base_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://Bot.SLDASM/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+
+  <link name="Front_Right_Wheel">
+    <inertial>
+      <origin xyz="0.125 -0.025 0.2225" rpy="0 0 0" />
+      <mass value="0.84038" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Bot.SLDASM/meshes/Front_Right_Wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Bot.SLDASM/meshes/Front_Right_Wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FRWB"
+    type="continuous">
+    <origin
+      xyz="0.125 -0.025 0.2225"
+      rpy="1.5708 0.39309 -3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="Front_Right_Wheel" />
+    <axis
+      xyz="0 0 1" />
+    <safety_controller
+      k_velocity="0" />
+    <mimic
+      joint="FLWB"
+      multiplier="1"
+      offset="0" />
+  </joint>
+  <link
+    name="Rear_Right_Wheel">
+    <inertial>
+      <origin
+        xyz="-0.125 -0.025 0.2225"
+        rpy="0 0 0" />
+      <mass
+        value="0.84038" />
+      <inertia
+        ixx="0.0021789"
+        ixy="5.421E-19"
+        ixz="-1.4347E-20"
+        iyy="0.0021828"
+        iyz="-1.0643E-06"
+        izz="0.0039293" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Bot.SLDASM/meshes/Rear_Right_Wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Bot.SLDASM/meshes/Rear_Right_Wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RRWB"
+    type="continuous">
+    <origin
+      xyz="-0.125 -0.025 0.2225"
+      rpy="1.5708 0.39309 -3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="Rear_Right_Wheel" />
+    <axis
+      xyz="0 0 1" />
+    <safety_controller
+      k_velocity="0" />
+    <mimic
+      joint="FRWB"
+      multiplier="1"
+      offset="0" />
+  </joint>
+  <link
+    name="Front_Left_Wheel">
+    <inertial>
+      <origin
+        xyz="0.125 -0.025 -0.2225"
+        rpy="0 0 0" />
+      <mass
+        value="0.84038" />
+      <inertia
+        ixx="0.0021789"
+        ixy="-5.464E-21"
+        ixz="-9.6509E-20"
+        iyy="0.0021828"
+        iyz="-1.0643E-06"
+        izz="0.0039293" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Bot.SLDASM/meshes/Front_Left_Wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Bot.SLDASM/meshes/Front_Left_Wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FLWB"
+    type="continuous">
+    <origin
+      xyz="0.125 -0.025 -0.2225"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Front_Left_Wheel" />
+    <axis
+      xyz="0 0 1" />
+    <safety_controller
+      k_velocity="0" />
+    <mimic
+      joint="FRWB"
+      multiplier="1"
+      offset="0" />
+  </joint>
+  <link
+    name="Rear_Left_Wheel">
+    <inertial>
+      <origin
+        xyz="-0.125 -0.025 -0.2225"
+        rpy="0 0 0" />
+      <mass
+        value="0.84038" />
+      <inertia
+        ixx="0.0021789"
+        ixy="-6.2009E-21"
+        ixz="1.7763E-19"
+        iyy="0.0021828"
+        iyz="-1.0643E-06"
+        izz="0.0039293" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Bot.SLDASM/meshes/Rear_Left_Wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Bot.SLDASM/meshes/Rear_Left_Wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RLWB"
+    type="continuous">
+    <origin
+      xyz="-0.125 -0.025 -0.2225"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Rear_Left_Wheel" />
+    <axis
+      xyz="0 0 1" />
+    <safety_controller
+      k_velocity="0" />
+    <mimic
+      joint="FRWB"
+      multiplier="1"
+      offset="0" />
+  </joint>
+  <link
+    name="Front_Camera">
+    <inertial>
+      <origin
+        xyz="0.225 0.045 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.075" />
+      <inertia
+        ixx="3.125E-05"
+        ixy="7.0586E-22"
+        ixz="1.0588E-21"
+        iyy="2.125E-05"
+        iyz="-3.1623E-23"
+        izz="2.125E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Bot.SLDASM/meshes/Front_Camera.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Bot.SLDASM/meshes/Front_Camera.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FC"
+    type="fixed">
+    <origin
+      xyz="0.225 0.045 0"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Front_Camera" />
+    <axis
+      xyz="0 0 0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="Left_Camera">
+    <inertial>
+      <origin
+        xyz="0 0.125 -0.2"
+        rpy="0 0 0" />
+      <mass
+        value="0.075" />
+      <inertia
+        ixx="3.125E-05"
+        ixy="3.5057E-37"
+        ixz="7.0586E-23"
+        iyy="2.125E-05"
+        iyz="-1.8962E-21"
+        izz="2.125E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Bot.SLDASM/meshes/Left_Camera.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Bot.SLDASM/meshes/Left_Camera.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LC"
+    type="fixed">
+    <origin
+      xyz="0 0.125 0.1"
+      rpy="-1.5708 0 -1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="Left_Camera" />
+    <axis
+      xyz="0 0 0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="Right_Camera">
+    <inertial>
+      <origin
+        xyz="0 0.125 0.2"
+        rpy="0 0 0" />
+      <mass
+        value="0.075" />
+      <inertia
+        ixx="3.125E-05"
+        ixy="-5.1556E-22"
+        ixz="4.1344E-38"
+        iyy="2.125E-05"
+        iyz="-1.4671E-21"
+        izz="2.125E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Bot.SLDASM/meshes/Right_Camera.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Bot.SLDASM/meshes/Right_Camera.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RC"
+    type="fixed">
+    <origin
+      xyz="0 0.125 -0.1"
+      rpy="1.5708 0 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="Right_Camera" />
+    <axis
+      xyz="0 0 0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="Extension_1">
+    <inertial>
+      <origin
+        xyz="0 0.3535 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.17024" />
+      <inertia
+        ixx="1.3441E-05"
+        ixy="-5.5621E-21"
+        ixz="-4.1147E-17"
+        iyy="0.0037227"
+        iyz="5.3294E-21"
+        izz="0.0037222" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Bot.SLDASM/meshes/Extension_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Bot.SLDASM/meshes/Extension_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="E1"
+    type="prismatic">
+    <origin
+      xyz="0 0.335 0"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Extension_1" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-0.4"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="Extension_2">
+    <inertial>
+      <origin
+        xyz="0.43 0.335 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.12697" />
+      <inertia
+        ixx="0.0012864"
+        ixy="-2.1574E-20"
+        ixz="5.6869E-22"
+        iyy="1.2621E-05"
+        iyz="1.8232E-19"
+        izz="0.0012854" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Bot.SLDASM/meshes/Extension_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Bot.SLDASM/meshes/Extension_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="E2"
+    type="prismatic">
+    <origin
+      xyz="0.43 0.335 0"
+      rpy="3.1416 0 3.1416" />
+    <parent
+      link="Extension_1" />
+    <child
+      link="Extension_2" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-0.225"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="Claw_Holder">
+    <inertial>
+      <origin
+        xyz="0.43 0.1 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.048872" />
+      <inertia
+        ixx="1.2849E-05"
+        ixy="4.9128E-20"
+        ixz="-6.0584E-21"
+        iyy="1.7624E-05"
+        iyz="3.4183E-20"
+        izz="1.3308E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Bot.SLDASM/meshes/Claw_Holder.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Bot.SLDASM/meshes/Claw_Holder.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Extension2Holder"
+    type="revolute">
+    <origin
+      xyz="0 -0.2375 0"
+      rpy="0 0 -2.7538" />
+    <parent
+      link="Extension_2" />
+    <child
+      link="Claw_Holder" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.265"
+      upper="1.265"
+      effort="0"
+      velocity="0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="F11">
+    <inertial>
+      <origin
+        xyz="0.43 0.05 0.022"
+        rpy="0 0 0" />
+      <mass
+        value="0.012589" />
+      <inertia
+        ixx="7.785E-06"
+        ixy="3.8116E-21"
+        ixz="-2.4061E-23"
+        iyy="3.4249E-07"
+        iyz="9.1528E-21"
+        izz="7.6554E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Bot.SLDASM/meshes/F11.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Bot.SLDASM/meshes/F11.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="C2F11"
+    type="continuous">
+    <origin
+      xyz="0 -0.277 0.022"
+      rpy="-1.5708 1.1855 -1.5708" />
+    <parent
+      link="Claw_Holder" />
+    <child
+      link="F11" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-1.265"
+      upper="0.422"
+      effort="0"
+      velocity="0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="F12">
+    <inertial>
+      <origin
+        xyz="0.43 -0.03 0.022"
+        rpy="0 0 0" />
+      <mass
+        value="0.014475" />
+      <inertia
+        ixx="9.2619E-06"
+        ixy="4.8784E-08"
+        ixz="-1.1929E-21"
+        iyy="8.5879E-07"
+        iyz="2.0395E-20"
+        izz="8.5432E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Bot.SLDASM/meshes/F12.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Bot.SLDASM/meshes/F12.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="F11toF12"
+    type="revolute">
+    <origin
+      xyz="0 0.357 0.022"
+      rpy="0 0 0.94305" />
+    <parent
+      link="F11" />
+    <child
+      link="F12" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-1.265"
+      upper="1.265"
+      effort="0"
+      velocity="0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="F21">
+    <inertial>
+      <origin
+        xyz="0.418 0.05 0.022"
+        rpy="0 0 0" />
+      <mass
+        value="0.012589" />
+      <inertia
+        ixx="7.785E-06"
+        ixy="-3.3087E-22"
+        ixz="-3.1261E-23"
+        iyy="3.4249E-07"
+        iyz="4.8821E-23"
+        izz="7.6554E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Bot.SLDASM/meshes/F21.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Bot.SLDASM/meshes/F21.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="C2F21"
+    type="revolute">
+    <origin
+      xyz="0.022 -0.277 0"
+      rpy="0 0 0.88554" />
+    <parent
+      link="Claw_Holder" />
+    <child
+      link="F21" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.265"
+      upper="0.422"
+      effort="0"
+      velocity="0" />
+    <safety_controller
+      k_velocity="0" />
+    <mimic
+      joint="C2F11"
+      multiplier="1"
+      offset="0" />
+  </joint>
+  <link
+    name="F22">
+    <inertial>
+      <origin
+        xyz="0.418 -0.03 0.022"
+        rpy="0 0 0" />
+      <mass
+        value="0.014475" />
+      <inertia
+        ixx="9.2619E-06"
+        ixy="4.8784E-08"
+        ixz="2.2244E-23"
+        iyy="8.5879E-07"
+        iyz="4.2081E-22"
+        izz="8.5432E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Bot.SLDASM/meshes/F22.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Bot.SLDASM/meshes/F22.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="F21toF22"
+    type="revolute">
+    <origin
+      xyz="0.022 0.357 0.0075"
+      rpy="3.1416 0 1.4635" />
+    <parent
+      link="F21" />
+    <child
+      link="F22" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.265"
+      upper="1.265"
+      effort="0"
+      velocity="0" />
+    <safety_controller
+      k_velocity="0" />
+    <mimic
+      joint="F11toF12"
+      multiplier="1"
+      offset="0" />
+  </joint>
+  <link
+    name="F31">
+    <inertial>
+      <origin
+        xyz="0.43 0.05 -0.022"
+        rpy="0 0 0" />
+      <mass
+        value="0.012589" />
+      <inertia
+        ixx="7.785E-06"
+        ixy="7.1998E-21"
+        ixz="-3.3866E-23"
+        iyy="3.4249E-07"
+        iyz="-7.6121E-21"
+        izz="7.6554E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Bot.SLDASM/meshes/F31.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Bot.SLDASM/meshes/F31.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="C2F31"
+    type="continuous">
+    <origin
+      xyz="0 0.277 -0.022"
+      rpy="1.5708 -0.59767 -1.5708" />
+    <parent
+      link="Claw_Holder" />
+    <child
+      link="F31" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-1.265"
+      upper="0.422"
+      effort="0"
+      velocity="0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="F32">
+    <inertial>
+      <origin
+        xyz="0.43 -0.03 -0.022"
+        rpy="0 0 0" />
+      <mass
+        value="0.014475" />
+      <inertia
+        ixx="9.2619E-06"
+        ixy="4.8784E-08"
+        ixz="-6.331E-22"
+        iyy="8.5879E-07"
+        iyz="1.3724E-20"
+        izz="8.5432E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Bot.SLDASM/meshes/F32.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Bot.SLDASM/meshes/F32.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="F31toF32"
+    type="revolute">
+    <origin
+      xyz="0 0.357 -0.022"
+      rpy="0 0 1.1637" />
+    <parent
+      link="F31" />
+    <child
+      link="F32" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-1.265"
+      upper="1.265"
+      effort="0"
+      velocity="0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="F41">
+    <inertial>
+      <origin
+        xyz="0.418 0.05 -0.022"
+        rpy="0 0 0" />
+      <mass
+        value="0.012589" />
+      <inertia
+        ixx="7.785E-06"
+        ixy="1.6755E-20"
+        ixz="1.2742E-23"
+        iyy="3.4249E-07"
+        iyz="-8.5887E-23"
+        izz="7.6554E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Bot.SLDASM/meshes/F41.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Bot.SLDASM/meshes/F41.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="C2F41"
+    type="revolute">
+    <origin
+      xyz="-0.022 -0.277 0"
+      rpy="0 0 -0.74387" />
+    <parent
+      link="Claw_Holder" />
+    <child
+      link="F41" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.265"
+      upper="0.422"
+      effort="0"
+      velocity="0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="F42">
+    <inertial>
+      <origin
+        xyz="0.418 -0.03 -0.022"
+        rpy="0 0 0" />
+      <mass
+        value="0.014475" />
+      <inertia
+        ixx="9.2619E-06"
+        ixy="4.8784E-08"
+        ixz="1.702E-23"
+        iyy="8.5879E-07"
+        iyz="2.9413E-22"
+        izz="8.5432E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Bot.SLDASM/meshes/F42.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Bot.SLDASM/meshes/F42.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="F41toF42"
+    type="revolute">
+    <origin
+      xyz="-0.022 -0.357 0"
+      rpy="0 0 1.9834" />
+    <parent
+      link="F41" />
+    <child
+      link="F42" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.265"
+      upper="1.265"
+      effort="0"
+      velocity="0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+</robot>
