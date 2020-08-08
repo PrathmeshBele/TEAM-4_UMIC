@@ -1,0 +1,568 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.4.4-24-g24328f6  Build Version: 1.5.7084.36479
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="Bot2">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.040287 0.10749 0.44881"
+        rpy="0 0 0" />
+      <mass
+        value="21.377" />
+      <inertia
+        ixx="0.40243"
+        ixy="0.009306"
+        ixz="-2.5598E-16"
+        iyy="0.72467"
+        iyz="-1.1425E-17"
+        izz="0.46291" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Bot2/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Bot2/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Front_Right_Wheel">
+    <inertial>
+      <origin
+        xyz="2.77555756156289E-17 -9.34579439252348E-05 -0.0889485981308411"
+        rpy="0 0 0" />
+      <mass
+        value="0.84037603483527" />
+      <inertia
+        ixx="0.00217887082225876"
+        ixy="3.25260651745651E-19"
+        ixz="1.20331618069314E-19"
+        iyy="0.0021828051532455"
+        iyz="-1.0643246139499E-06"
+        izz="0.00392933967130769" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Bot2/meshes/Front_Right_Wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Bot2/meshes/Front_Right_Wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FRWB"
+    type="continuous">
+    <origin
+      xyz="0.16887 -0.57881 0.014041"
+      rpy="1.5708 0.39309 -3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="Front_Right_Wheel" />
+    <axis
+      xyz="0 0 1" />
+    <safety_controller
+      k_velocity="0" />
+    <mimic
+      joint="FLWB"
+      multiplier="1"
+      offset="0" />
+  </joint>
+  <link
+    name="Rear_Right_Wheel">
+    <inertial>
+      <origin
+        xyz="-1.38777878078145E-17 -9.34579439252417E-05 -0.0889485981308411"
+        rpy="0 0 0" />
+      <mass
+        value="0.84037603483527" />
+      <inertia
+        ixx="0.00217887082225876"
+        ixy="2.71050543121376E-19"
+        ixz="-1.45583787809333E-20"
+        iyy="0.0021828051532455"
+        iyz="-1.0643246139499E-06"
+        izz="0.00392933967130769" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Bot2/meshes/Rear_Right_Wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Bot2/meshes/Rear_Right_Wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RRWB"
+    type="continuous">
+    <origin
+      xyz="-0.081132 -0.57881 0.014041"
+      rpy="1.5708 0.39309 -3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="Rear_Right_Wheel" />
+    <axis
+      xyz="0 0 1" />
+    <safety_controller
+      k_velocity="0" />
+    <mimic
+      joint="FRWB"
+      multiplier="1"
+      offset="0" />
+  </joint>
+  <link
+    name="Front_Left_Wheel">
+    <inertial>
+      <origin
+        xyz="-2.77555756156289E-17 -9.3457943925233E-05 0.0160514018691588"
+        rpy="0 0 0" />
+      <mass
+        value="0.84037603483527" />
+      <inertia
+        ixx="0.00217887082225876"
+        ixy="-5.46400014834222E-21"
+        ixz="-9.65092308661474E-20"
+        iyy="0.0021828051532455"
+        iyz="-1.06432461394982E-06"
+        izz="0.00392933967130768" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Bot2/meshes/Front_Left_Wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Bot2/meshes/Front_Left_Wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FLWB"
+    type="continuous">
+    <origin
+      xyz="0.16887 -0.21381 0.014041"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Front_Left_Wheel" />
+    <axis
+      xyz="0 0 -1" />
+    <safety_controller
+      k_velocity="0" />
+    <mimic
+      joint="FRWB"
+      multiplier="1"
+      offset="0" />
+  </joint>
+  <link
+    name="Rear_Left_Wheel">
+    <inertial>
+      <origin
+        xyz="0 -9.3457943925233E-05 0.0160514018691589"
+        rpy="0 0 0" />
+      <mass
+        value="0.840376034835269" />
+      <inertia
+        ixx="0.00217887082225876"
+        ixy="-6.20092364511184E-21"
+        ixz="1.77625195682276E-19"
+        iyy="0.0021828051532455"
+        iyz="-1.06432461394982E-06"
+        izz="0.00392933967130768" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Bot2/meshes/Rear_Left_Wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Bot2/meshes/Rear_Left_Wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RLWB"
+    type="continuous">
+    <origin
+      xyz="-0.081132 -0.21381 0.014041"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Rear_Left_Wheel" />
+    <axis
+      xyz="0 0 -1" />
+    <safety_controller
+      k_velocity="0" />
+    <mimic
+      joint="FRWB"
+      multiplier="1"
+      offset="0" />
+  </joint>
+  <link
+    name="Front_Camera">
+    <inertial>
+      <origin
+        xyz="0.015 -1.38777878078145E-17 -5.55111512312578E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.0750000000000001" />
+      <inertia
+        ixx="3.12500000000001E-05"
+        ixy="-3.52930394689292E-22"
+        ixz="1.05879118406788E-21"
+        iyy="2.12500000000001E-05"
+        iyz="8.25574779257184E-22"
+        izz="2.125E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Bot2/meshes/Front_Camera.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Bot2/meshes/Front_Camera.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FC"
+    type="fixed">
+    <origin
+      xyz="0.26887 -0.44881 0.11404"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Front_Camera" />
+    <axis
+      xyz="0 0 0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="Left_Camera">
+    <inertial>
+      <origin
+        xyz="0.015 2.77555756156289E-17 -6.93889390390723E-18"
+        rpy="0 0 0" />
+      <mass
+        value="0.075" />
+      <inertia
+        ixx="3.125E-05"
+        ixy="3.50571244610926E-37"
+        ixz="7.05860789378561E-23"
+        iyy="2.125E-05"
+        iyz="-1.89622442458663E-21"
+        izz="2.125E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Bot2/meshes/Left_Camera.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Bot2/meshes/Left_Camera.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LC"
+    type="fixed">
+    <origin
+      xyz="0.0438682665747928 -0.21880719504586 0.164041014005108"
+      rpy="-1.5707963267949 0 -1.5707963267949" />
+    <parent
+      link="base_link" />
+    <child
+      link="Left_Camera" />
+    <axis
+      xyz="0 0 0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="Right_Camera">
+    <inertial>
+      <origin
+        xyz="0.015 0 6.93889390390723E-18"
+        rpy="0 0 0" />
+      <mass
+        value="0.075" />
+      <inertia
+        ixx="3.125E-05"
+        ixy="-5.15560720562118E-22"
+        ixz="3.61422899918658E-38"
+        iyy="2.125E-05"
+        iyz="-1.46706106464445E-21"
+        izz="2.125E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Bot2/meshes/Right_Camera.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Bot2/meshes/Right_Camera.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RC"
+    type="fixed">
+    <origin
+      xyz="0.0438682665747929 -0.678807195045861 0.164041014005108"
+      rpy="1.5707963267949 0 1.5707963267949" />
+    <parent
+      link="base_link" />
+    <child
+      link="Right_Camera" />
+    <axis
+      xyz="0 0 0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="Extension_1">
+    <inertial>
+      <origin
+        xyz="0.18697648033194 0 -5.55111512312578E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.154530964914874" />
+      <inertia
+        ixx="1.26553093477052E-05"
+        ixy="-1.0173103246227E-20"
+        ixz="9.47397590128893E-21"
+        iyy="0.00272125728868608"
+        iyz="9.76324056323183E-23"
+        izz="0.00272078604978804" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Bot2/meshes/Extension_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Bot2/meshes/Extension_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="E1"
+    type="prismatic">
+    <origin
+      xyz="0 -0.44881 0.35404"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Extension_1" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-380"
+      upper="-30"
+      effort="0"
+      velocity="0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="Extension_2">
+    <inertial>
+      <origin
+        xyz="5.55111512312578E-17 0.144503291492238 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.166247779607694" />
+      <inertia
+        ixx="0.00276885931618729"
+        ixy="-6.1250615037163E-20"
+        ixz="-2.78572458322839E-21"
+        iyy="1.55123889803847E-05"
+        iyz="-1.64950012345838E-19"
+        izz="0.00276885931618729" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Bot2/meshes/Extension_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Bot2/meshes/Extension_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="E2"
+    type="prismatic">
+    <origin
+      xyz="0.38856 0 0"
+      rpy="3.1416 -1.5708 0" />
+    <parent
+      link="Extension_1" />
+    <child
+      link="Extension_2" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-330"
+      upper="-300"
+      effort="0"
+      velocity="0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+</robot>

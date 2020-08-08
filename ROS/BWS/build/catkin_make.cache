@@ -1,0 +1,2 @@
+Bot:Bot2
+-DCATKIN_DEVEL_PREFIX=/home/bishop/ROS/BWS/devel -DCMAKE_INSTALL_PREFIX=/home/bishop/ROS/BWS/install -G Unix Makefiles

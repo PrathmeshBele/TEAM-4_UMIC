@@ -1,0 +1,1 @@
+controller_joint_names: ['', 'FRWB', 'RRWB', 'FLWB', 'RLWB', 'E1', 'E2', 'Extension2Holder', 'C2F11', 'F11toF12', 'C2F21', 'F21toF22', 'C2F31', 'F31toF32', 'C2F41', 'F41toF42', ]
