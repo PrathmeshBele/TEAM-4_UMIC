@@ -7,4 +7,10 @@ Date : dd/mm/yy
 
 Name : Prathmesh
 Date : 7 / 8 / 2020
-modified environment(found over internet) for testing of bot(placed balls on the roads), revisiting ros-gazebo tutorials to clear doubts
+modified environment(found over internet) for testing of bot(placed balls on the roads), revisiting ros-gazebo tutorials to clear doubts.
+
+Name : Gangadhar
+Date : 7 / 8 / 2020
+* Made an environment for testing, by adding a few road elements. Made a SW model of the sign board and exported it into the environment.
+ // Facing error exporting the colors of the SW model
+* Went through the ROS-GAZEBO tutorials. Made a clarity on the controllers,transmissions and plugins. 
