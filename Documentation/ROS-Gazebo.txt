@@ -14,3 +14,23 @@ Date : 7 / 8 / 2020
 * Made an environment for testing, by adding a few road elements. Made a SW model of the sign board and exported it into the environment.
  // Facing error exporting the colors of the SW model
 * Went through the ROS-GAZEBO tutorials. Made a clarity on the controllers,transmissions and plugins. 
+
+Name : Bishop Prakash
+Date : 7/8/2020
+Read the documentation on ROS site for the SW Add-in and its usage.
+Installed visual studio and the required repo and then installed the SW add-in
+Saw some YT videos for using the SW add-in for exporting and then exported the assembly as a urdf.
+Tried opening urdf on ubuntu in rviz and gazebo by making a package but nothing was visible, 
+I tried to figure out stuff from the bugs but nothing was clear.
+
+Name : Bishop Prakash
+Date : 8/8/202
+Studied some ROS and Gazebo concepts and watched a YT playlist for the same.
+Made new package with the modified assembly of the bot and new claw.
+running the above package did not made the bot visible at first but 
+after some frame fixes it was visible in rviz but some of the parts were dangling
+and the model in the gazebo environment was moving all but itself very randomly
+I discussed this with team mates and mentors and came at some conlusion 
+regarding collison of parts and clearences.
+Made a new package with the modified version of the bot and tried to run it,
+got much better results but a lot has to be fixed yet.
