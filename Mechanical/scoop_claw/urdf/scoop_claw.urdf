@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.4.4-24-g24328f6  Build Version: 1.5.7084.36479
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="scoop_claw">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="2.0425E-16 -0.0065284 1.2422E-16"
+        rpy="0 0 0" />
+      <mass
+        value="0.047623" />
+      <inertia
+        ixx="1.2295E-05"
+        ixy="4.9851E-20"
+        ixz="1.034E-21"
+        iyy="1.7093E-05"
+        iyz="2.4151E-20"
+        izz="1.2749E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scoop_claw/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scoop_claw/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="F1">
+    <inertial>
+      <origin
+        xyz="0.041044 -0.070958 -3.3131E-09"
+        rpy="0 0 0" />
+      <mass
+        value="0.032796" />
+      <inertia
+        ixx="6.1528E-05"
+        ixy="2.8622E-06"
+        ixz="-1.7673E-12"
+        iyy="1.1837E-05"
+        iyz="1.0847E-11"
+        izz="6.5603E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scoop_claw/meshes/F1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scoop_claw/meshes/F1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="F1J"
+    type="continuous">
+    <origin
+      xyz="0.022 0 -0.017"
+      rpy="1.5708 0.27708 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="F1" />
+    <axis
+      xyz="0 0 1" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="F2">
+    <inertial>
+      <origin
+        xyz="0.041044 -0.070958 -2.1148E-09"
+        rpy="0 0 0" />
+      <mass
+        value="0.032796" />
+      <inertia
+        ixx="6.1528E-05"
+        ixy="2.8622E-06"
+        ixz="-6.6382E-13"
+        iyy="1.1837E-05"
+        iyz="7.8949E-12"
+        izz="6.5603E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scoop_claw/meshes/F2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scoop_claw/meshes/F2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="F2J"
+    type="continuous">
+    <origin
+      xyz="0 0.022 -0.017"
+      rpy="1.5708 0 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="F2" />
+    <axis
+      xyz="1 0 0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="F3">
+    <inertial>
+      <origin
+        xyz="0.041044 -0.070958 -2.2194E-09"
+        rpy="0 0 0" />
+      <mass
+        value="0.032796" />
+      <inertia
+        ixx="6.1528E-05"
+        ixy="2.8622E-06"
+        ixz="-7.4641E-13"
+        iyy="1.1837E-05"
+        iyz="8.0853E-12"
+        izz="6.5603E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scoop_claw/meshes/F3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scoop_claw/meshes/F3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="F3J"
+    type="continuous">
+    <origin
+      xyz="-0.022 0 -0.017"
+      rpy="1.5708 -0.01686 3.1416" />
+    <parent
+      link="base_link" />
+    <child
+      link="F3" />
+    <axis
+      xyz="0 0 1" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="F4">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scoop_claw/meshes/F4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://scoop_claw/meshes/F4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="F4J"
+    type="continuous">
+    <origin
+      xyz="0 -0.022 -0.017"
+      rpy="-1.5708 0 -1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="F4" />
+    <axis
+      xyz="1 0 0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+</robot>
