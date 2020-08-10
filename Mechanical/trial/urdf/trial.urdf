@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<robot name="bot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+	<xacro:include filename="$(find bot_description)/urdf/mybot_gazebo.gazebo" />
+
+
+	<material name="gray">
+		<color rgba="1 1 1 1"/>
+	</material>
+	<material name="orange">
+		<color rgba="1 0.7 0 1"/>
+	</material>
+	<material name="black">
+		<color rgba="0 0 0 1"/>
+	</material>
+	<material name="green">
+		<color rgba="0 1 0 1"/>
+	</material>
+	<material name="blue">
+		<color rgba="0 0 1 1"/>
+	</material>
+	<material name="cream">
+		<color rgba="0.7 0.7 0.7 1"/>
+	</material>
+
+
+	<!--<link name="origin">
+		<inertial>
+			j  <origin xyz="0 0 0" rpy="0 0 0"/>
+			<mass value="0.0001"/>
+			<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+		</inertial>
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<box size="0.00005 0.00005 0.00005"/>
+			</geometry>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0"/>
+			<geometry>
+				<box size="0.00005 0.00005 0.00005"/>
+			</geometry>
+		</collision>
+	</link>-->
+
+	<link name="base_link">
+		<inertial>
+			<origin xyz="0 0 0.12" rpy="0 0 0"/>
+			<mass value="10"/>
+			<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+		</inertial>
+		<visual>
+			<origin xyz="0 0 0.12" rpy="0 0 0"/>
+			<geometry>
+				<mesh filename="package://trial/meshes/base_link.STL" />
+			</geometry>
+			<material name = "orange"/>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0.12" rpy="0 0 0"/>
+			<geometry>
+				<mesh filename="package://trial/meshes/base_link.STL" />
+			</geometry>
+		</collision>
+	</link>
+
+	<!--<xacro:macro name="Wheel" params="X Y F">-->
+	<link name="FRW">
+		<inertial>
+			<origin xyz="0 0 0" rpy="1.57 0 0"/>
+			<mass value="3"/>
+			<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+		</inertial>
+		<visual>
+			<origin xyz="0 0 0" rpy="1.57 0 0"/>
+			<geometry>
+				<mesh filename="package://trial/meshes/FRW.STL" />
+			</geometry>
+			<material name = "gray"/>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="1.57 0 0"/>
+			<geometry>
+				<mesh filename="package://trial/meshes/FRW.STL" />
+			</geometry>
+		</collision>
+	</link>
+
+	<joint name="FRWJ" type="continuous">
+		<parent link = "base_link"/>
+		<child link = "FRW"/>
+		<origin xyz="0 0 0.12" rpy="0 0 0"/>
+		<axis xyz="0 0 1"/>
+	</joint>
+	<!--</xacro:macro>
+
+	<xacro:macro X="F" Y="R" F="package://trial/meshes/FRW.STL"/>
+	<xacro:macro X="R" Y="R"/>
+	<xacro:macro X="F" Y="L"/>
+	<xacro:macro X="R" Y="L"/>-->
+
+	<link name="RRW">
+
+		<inertial>
+
+			<origin xyz="0 0 0" rpy="1.57 0 0"/>
+
+			<mass value="3"/>
+
+			<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+
+		</inertial>
+
+		<visual>
+
+			<origin xyz="0 0 0" rpy="1.57 0 0"/>
+
+			<geometry>
+
+				<mesh filename="package://trial/meshes/RRW.STL" />
+			</geometry>
+			<material name = "gray"/>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="1.57 0 0"/>
+			<geometry>
+				<mesh filename="package://trial/meshes/RRW.STL" />
+			</geometry>
+		</collision>
+	</link>
+
+	<joint name="RRWJ" type="continuous">
+		<parent link = "base_link"/>
+		<child link = "RRW"/>
+		<origin xyz="0 0 0.12" rpy="0 0 0"/>
+		<axis xyz="0 0 1"/>
+	</joint>
+
+	<link name="FLW">
+
+		<inertial>
+
+			<origin xyz="0 0 0" rpy="1.57 0 0"/>
+
+			<mass value="3"/>
+
+			<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+
+		</inertial>
+
+		<visual>
+
+			<origin xyz="0 0 0" rpy="1.57 0 0"/>
+
+			<geometry>
+
+				<mesh filename="package://trial/meshes/FLW.STL" />
+			</geometry>
+			<material name = "gray"/>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="1.57 0 0"/>
+			<geometry>
+				<mesh filename="package://trial/meshes/FLW.STL" />
+			</geometry>
+		</collision>
+	</link>
+
+	<joint name="FLWJ" type="continuous">
+		<parent link = "base_link"/>
+		<child link = "FLW"/>
+		<origin xyz="0 0 0.12" rpy="0 0 0"/>
+		<axis xyz="0 0 1"/>
+	</joint>
+
+	<link name="RLW">
+
+		<inertial>
+
+			<origin xyz="0 0 0" rpy="1.57 0 0"/>
+
+			<mass value="3"/>
+
+			<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+
+		</inertial>
+
+		<visual>
+
+			<origin xyz="0 0 0" rpy="1.57 0 0"/>
+
+			<geometry>
+
+				<mesh filename="package://trial/meshes/RLW.STL" />
+			</geometry>
+			<material name = "gray"/>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="1.57 0 0"/>
+			<geometry>
+				<mesh filename="package://trial/meshes/RLW.STL" />
+			</geometry>
+		</collision>
+	</link>
+
+	<joint name="RLWJ" type="continuous">
+		<parent link = "base_link"/>
+		<child link = "RLW"/>
+		<origin xyz="0 0 0.12" rpy="0 0 0"/>
+		<axis xyz="0 0 1"/>
+	</joint>
+
+
+
+	<link name="FC">
+		<inertial>
+			<origin xyz="0 0 0" rpy="1.57 0 0"/>
+			<mass value="0.25"/>
+			<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+		</inertial>
+		<visual>
+			<origin xyz="0 0 0" rpy="1.57 0 0"/>
+			<geometry>
+				<mesh filename="package://trial/meshes/FC.STL" />
+			</geometry>
+			<material name = "blue"/>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="1.57 0 0"/>
+			<geometry>
+				<mesh filename="package://trial/meshes/FC.STL" />
+			</geometry>
+		</collision>
+	</link>
+
+	<joint name="FCJ" type="fixed">
+		<parent link = "base_link"/>
+		<child link = "FC"/>
+		<origin xyz="0 0 0.12" rpy="0 0 0"/>
+	</joint>
+
+	<link name="LC">
+
+		<inertial>
+
+			<origin xyz="0 0 0" rpy="1.57 0 0"/>
+
+			<mass value="0.25"/>
+
+			<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+
+		</inertial>
+
+		<visual>
+
+			<origin xyz="0 0 0" rpy="1.57 0 0"/>
+			<geometry>
+				<mesh filename="package://trial/meshes/LC.STL" />
+			</geometry>
+			<material name = "blue"/>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="1.57 0 0"/>
+			<geometry>
+				<mesh filename="package://trial/meshes/LC.STL" />
+			</geometry>
+		</collision>
+	</link>
+
+	<joint name="LCJ" type="fixed">
+		<parent link = "base_link"/>
+		<child link = "LC"/>
+		<origin xyz="0 0 0.12" rpy="0 0 0"/>
+	</joint>
+
+	<link name="RC">
+
+		<inertial>
+
+			<origin xyz="0 0 0" rpy="1.57 0 0"/>
+
+			<mass value="0.25"/>
+
+			<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+
+		</inertial>
+
+		<visual>
+
+			<origin xyz="0 0 0" rpy="1.57 0 0"/>
+			<geometry>
+				<mesh filename="package://trial/meshes/RC.STL" />
+			</geometry>
+			<material name = "blue"/>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="1.57 0 0"/>
+			<geometry>
+				<mesh filename="package://trial/meshes/RC.STL" />
+			</geometry>
+		</collision>
+	</link>
+
+	<joint name="RCJ" type="fixed">
+		<parent link = "base_link"/>
+		<child link = "RC"/>
+		<origin xyz="0 0 0.12" rpy="0 0 0"/>
+	</joint>
+
+
+	<link name="EP1">
+		<inertial>
+			<origin xyz="0 0 0" rpy="1.57 0 0"/>
+			<mass value="0.5"/>
+			<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+		</inertial>
+		<visual>
+			<origin xyz="0 0 0" rpy="1.57 0 0"/>
+			<geometry>
+				<mesh filename="package://trial/meshes/EP1.STL" />
+			</geometry>
+			<material name = "cream"/>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="1.57 0 0"/>
+			<geometry>
+				<mesh filename="package://trial/meshes/EP1.STL" />
+			</geometry>
+		</collision>
+	</link>
+
+	<joint name="EP1J" type="prismatic">
+		<parent link = "base_link"/>
+		<child link = "EP1"/>
+		<origin xyz="0 0 0.12" rpy="0 0 0"/>
+		<axis xyz="1 0 0"/>
+		<limit upper="0" lower="-0.35" effort="10" velocity="0.1"/>
+	</joint>
+
+	<link name="EP2">
+		<inertial>
+			<origin xyz="0 0 0" rpy="1.57 0 0"/>
+			<mass value="0.5"/>
+			<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+		</inertial>
+		<visual>
+			<origin xyz="0 0 0" rpy="1.57 0 0"/>
+			<geometry>
+				<mesh filename="package://trial/meshes/EP2.STL" />
+			</geometry>
+			<material name = "cream"/>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="1.57 0 0"/>
+			<geometry>
+				<mesh filename="package://trial/meshes/EP2.STL" />
+			</geometry>
+		</collision>
+	</link>
+
+	<joint name="EP2J" type="prismatic">
+		<parent link = "EP1"/>
+		<child link = "EP2"/>
+		<origin xyz="0 0 0" rpy="0 0 0"/>
+		<axis xyz="0 1 0"/>
+		<limit upper="0" lower="-0.23" effort="10" velocity="0.1"/>
+	</joint>
+
+	<link name="CH">
+		<inertial>
+			<origin xyz="0 0 0" rpy="1.57 0 0"/>
+			<mass value="0.5"/>
+			<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+		</inertial>
+		<visual>
+			<origin xyz="0 0 0" rpy="1.57 0 0"/>
+			<geometry>
+				<mesh filename="package://trial/meshes/CH.STL" />
+			</geometry>
+			<material name = "blue"/>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="1.57 0 0"/>
+			<geometry>
+				<mesh filename="package://trial/meshes/CH.STL" />
+			</geometry>
+		</collision>
+	</link>
+
+	<joint name="CHJ" type="revolute">
+		<parent link = "EP2"/>
+		<child link = "CH"/>
+		<origin xyz="0 0 0" rpy="0 0 0"/>
+		<axis xyz="0 0 1"/>
+		<limit upper="0" lower="-0.35" effort="10" velocity="0.125"/>
+	</joint>
+
+	<link name="F1">
+		<inertial>
+			<origin xyz="0 0 0" rpy="1.57 0 0"/>
+			<mass value="0.5"/>
+			<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+		</inertial>
+		<visual>
+			<origin xyz="0 0 0" rpy="1.57 0 0"/>
+			<geometry>
+				<mesh filename="package://trial/meshes/F1.STL" />
+			</geometry>
+			<material name = "green"/>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="1.57 0 0"/>
+			<geometry>
+				<mesh filename="package://trial/meshes/F1.STL" />
+			</geometry>
+		</collision>
+	</link>
+
+	<joint name="F1J" type="revolute">
+		<parent link = "CH"/>
+		<child link = "F1"/>
+		<origin xyz="0 0 0" rpy="0 0 0"/>
+		<axis xyz="0 0 1"/>
+		<limit upper="0" lower="-0.35" effort="10" velocity="0.125"/>
+	</joint>
+
+	<link name="F2">
+		<inertial>
+			<origin xyz="0 0 0" rpy="1.57 0 0"/>
+			<mass value="0.5"/>
+			<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+		</inertial>
+		<visual>
+			<origin xyz="0 0 0" rpy="1.57 0 0"/>
+			<geometry>
+				<mesh filename="package://trial/meshes/F2.STL" />
+			</geometry>
+			<material name = "green"/>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="1.57 0 0"/>
+			<geometry>
+				<mesh filename="package://trial/meshes/F2.STL" />
+			</geometry>
+		</collision>
+	</link>
+
+	<joint name="F2J" type="revolute">
+		<parent link = "CH"/>
+		<child link = "F2"/>
+		<origin xyz="0 0 0" rpy="0 0 0"/>
+		<axis xyz="0 0 1"/>
+		<limit upper="0" lower="-0.35" effort="10" velocity="0.125"/>
+	</joint>
+
+	<link name="F3">
+		<inertial>
+			<origin xyz="0 0 0" rpy="1.57 0 0"/>
+			<mass value="0.5"/>
+			<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+		</inertial>
+		<visual>
+			<origin xyz="0 0 0" rpy="1.57 0 0"/>
+			<geometry>
+				<mesh filename="package://trial/meshes/F3.STL" />
+			</geometry>
+			<material name = "green"/>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="1.57 0 0"/>
+			<geometry>
+				<mesh filename="package://trial/meshes/F3.STL" />
+			</geometry>
+		</collision>
+	</link>
+
+	<joint name="F3J" type="revolute">
+		<parent link = "CH"/>
+		<child link = "F3"/>
+		<origin xyz="0 0 0" rpy="0 0 0"/>
+		<axis xyz="0 0 1"/>
+		<limit upper="0" lower="-0.35" effort="10" velocity="0.125"/>
+	</joint>
+</robot>
