@@ -34,6 +34,10 @@ I discussed this with team mates and mentors and came at some conlusion regardin
 Made a new package with the modified version of the bot and tried to run it,
 got much better results but a lot has to be fixed yet.
 
+Name : Gangadhar
+Date : 9/8/20
+Worked on fixing the errors in the exported urdf model.
+
 Name : Bishop Prakash
 Date : 9/8/20
 I ran multiple new packages and tried to fix them, 
@@ -49,3 +53,10 @@ Date : 10/8/20
 Tested the new modified robot packages with assemblies having changed effort and velocity values,
 I got the hints of doing this from mentors and then I searched for stuff related to it on the web.
 I also made a new package with the new 3 finger claw.
+
+Name : Gangadhar
+Date : 10/8/20
+*Worked on figuring out what was going wrong during the exportation of the urdf files. Got some errors while
+adding differential drive to the bot model, but resolved them. Added cameras to the bot and made corrections to their 
+orientations.
+//For my differential drive, when I publish angular displacements, its reading them as linear and vice versa. Needs to be fixed.
