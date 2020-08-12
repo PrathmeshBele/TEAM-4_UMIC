@@ -1,0 +1,4 @@
+Make a WS in Home(recommended to lessen ur work) -> src.
+It would be better to create the packages in this folder individually by catkin_create_pkg and then import the meshes, urdf..
+In umic_gazebo -> worlds -> env1..I have made three '#' wherever u need to change directory.
+Just change the name of the user there ( provided the WS is in Home ) and then remove '#'.  
