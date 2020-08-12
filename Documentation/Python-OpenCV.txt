@@ -10,3 +10,7 @@ wrote the code for lane detection using opencv. the code detects the road side l
 Member Name : Aryan Kolapkar
 Date : 9th august
 opened road.world file and fixed the issue of road glitching that was occuring due to overlapping of ground plane and road. 
+
+Member Name : Prasann Viswanathan
+Date : 05/08/20 - 06/08/20
+Designed algorithm for arrow detection using openCV which will be tweaked to perform left and right turns of our robot.
