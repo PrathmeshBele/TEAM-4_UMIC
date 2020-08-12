@@ -69,5 +69,5 @@ Date : 11/8/20
 
 Name : Gangadhar
 Date : 12/8/20
-*Worked a little on adding colors to sign board in the gazebo. So actually, I made the SW model such that the arrow, boar, and pole could be exported as different 
- links. Added colors to them in gazebo. Finished the environment.
+*Worked a little on adding colors to sign board in the gazebo. So actually, I made the SW model such that the arrow, boar, and
+ pole could be exported as different links. Added colors to them in gazebo. Finished the environment.
