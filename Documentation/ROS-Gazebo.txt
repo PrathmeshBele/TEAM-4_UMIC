@@ -60,3 +60,14 @@ Date : 10/8/20
 adding differential drive to the bot model, but resolved them. Added cameras to the bot and made corrections to their 
 orientations.
 //For my differential drive, when I publish angular displacements, its reading them as linear and vice versa. Needs to be fixed.
+ 
+Name : Gangadhar
+Date : 11/8/20
+*Read a little on how to control using MoveIt for our bot.
+*Figured out where the differential was going wrong. Fixed it, got a new issue resulting in the bounung of the bot, probably due to internal collisions.
+ But I think, since the geometry of the final bot is modified, I didnt work on fixing this issue.
+
+Name : Gangadhar
+Date : 12/8/20
+*Worked a little on adding colors to sign board in the gazebo. So actually, I made the SW model such that the arrow, boar, and pole could be exported as different 
+ links. Added colors to them in gazebo. Finished the environment.
