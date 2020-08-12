@@ -60,6 +60,15 @@ Date : 10/8/20
 adding differential drive to the bot model, but resolved them. Added cameras to the bot and made corrections to their 
 orientations.
 //For my differential drive, when I publish angular displacements, its reading them as linear and vice versa. Needs to be fixed.
+
+Name : Bishop Prakash
+Date : 11/8/20
+Tested the new packages for 3 finger claw, but did not get much of an improvement in the assembly position as a whole
+studied on net about the co-ordinate systems in the URDF exported files and that helped me to figure out that
+when we export the urdf the meshes get exported at the desired co-ordinates, so in the URDF I changed all the co-ordinate values xyz="0 0 0".
+the above thing gave me the first succuss where the bot was full intact in RVIZ, even though I couldn't see the JSTP to manipulate the joints
+Also in gazebo all the the parts of the bot were in place but they were very losely packed and that has someting to do with the intertia, 
+which would be my next line of action
  
 Name : Gangadhar
 Date : 11/8/20

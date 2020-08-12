@@ -54,3 +54,11 @@ An idea of 3 finger claw clicked me during above logic-fights so I made a triang
 a 3 finger claw to reduce the possibilities of collisions, it woul also reduce some control works for us.
 At the end I exported the above two packages and went on ubuntu to test them.
 
+Name : Bishop Prakash
+Date 12/8/20
+Created the retracable back for the base of the bot, as discussed in the meeting 
+so that we can drop the balls at the end of the simulation.
+Exported all parts in the STL format so that they can simply be used in the URDF as meshes
+as exported the version of assembly with retracable back.
+
+
