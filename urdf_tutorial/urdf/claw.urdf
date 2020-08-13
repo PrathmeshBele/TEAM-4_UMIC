@@ -1,0 +1,136 @@
+<?xml version="1.0"?>
+<robot name="claw">
+
+	<material name="grey">
+		<color rgba="0.6 0.6 0.6 1"/>
+	</material>
+	<material name="black">
+		<color rgba="0 0 0 1"/>
+	</material>
+	<material name="white">
+		<color rgba="1 1 1 1"/>
+	</material>
+
+	<link name="base_link">
+		<collision>
+			<origin rpy="0 0 0" xyz="0 0 0.13"/>
+			<geometry>
+				<cylinder length="0.26" radius="0.018"/>
+			</geometry>
+		</collision>
+		<visual>
+			<origin rpy="0 0 0" xyz="0 0 0.13"/>
+			<geometry>
+				<cylinder length="0.26" radius="0.018"/>
+			</geometry>
+			<material name="grey"/>
+		</visual>
+		<inertial>
+			<mass value="1.0"/>
+			<inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+		</inertial>
+	</link>
+
+	<link name="horizontal">
+		<collision>
+			<origin rpy="0 1.57075 0" xyz="0 0 0"/>
+			<geometry>
+				<cylinder length="0.56" radius="0.018"/>
+			</geometry>
+		</collision>
+		<visual>
+			<origin rpy="0 1.57075 0" xyz="0 0 0"/>
+			<geometry>
+				<cylinder length="0.56" radius="0.018"/>
+			</geometry>
+			<material name="grey"/>
+		</visual>
+		<inertial>
+			<mass value="1.0"/>
+			<inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+		</inertial>
+	</link>
+
+	<joint name="base_to_horizontal" type="prismatic">
+		<parent link="base_link"/>
+		<child link="horizontal"/>
+		<limit effort="1000.0" lower="-0.28" upper="0.28" velocity="0.5"/>
+		<origin xyz="0 0 0.26"/>
+	</joint>
+
+	<link name="final_arm">
+		<collision>
+			<origin rpy="0 0 0" xyz="0 0 0"/>
+			<geometry>
+				<cylinder length="0.27" radius="0.018"/>
+			</geometry>
+		</collision>
+		<visual>
+			<origin rpy="0 0 0" xyz="0 0 0"/>
+			<geometry>
+				<cylinder length="0.27" radius="0.018"/>
+			</geometry>
+			<material name="grey"/>
+		</visual>
+		<inertial>
+			<mass value="1.0"/>
+			<inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+		</inertial>
+	</link>
+
+	<joint name="horizontal_to_final_arm" type="prismatic">
+		<axis xyz="0 0 1"/>
+		<parent link="horizontal"/>
+		<child link="final_arm"/>
+		<limit effort="1000.0" lower="-0.135" upper="0.135" velocity="0.5"/>
+		<origin xyz="0.28 0 0"/>
+	</joint>
+
+	<link name="left_gripper">
+		<collision>
+			<origin rpy="0.0 1.57075 0" xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="package://urdf_tutorial/meshes/l_finger.dae"/>
+			</geometry>
+		</collision>
+		<visual>
+			<origin rpy="0.0 1.57075 0" xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="package://urdf_tutorial/meshes/l_finger.dae"/>
+			</geometry>
+		</visual>
+	</link>
+
+	<joint name="left_gripper_joint" type="revolute">
+		<axis xyz="1 0 0"/>
+		<limit effort="1000.0" lower="0.0" upper="1.5" velocity="0.5"/>
+		<origin rpy="0 0 0" xyz="0 0 -0.135"/>
+		<parent link="final_arm"/>
+		<child link="left_gripper"/>
+	</joint>
+
+	<link name="right_gripper">
+		<collision>
+			<origin rpy="-3.1415 1.57075 0" xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="package://urdf_tutorial/meshes/l_finger.dae"/>
+			</geometry>
+		</collision>
+		<visual>
+			<origin rpy="-3.1415 1.57075 0" xyz="0 0 0"/>
+			<geometry>
+				<mesh filename="package://urdf_tutorial/meshes/l_finger.dae"/>
+			</geometry>
+		</visual>
+	</link>
+
+	<joint name="right_gripper_joint" type="revolute">
+		<axis xyz="-1 0 0"/>
+		<limit effort="1000.0" lower="0.0" upper="1.5" velocity="0.5"/>
+		<origin rpy="0 0 0" xyz="0 0 -0.135"/>
+		<parent link="final_arm"/>
+		<child link="right_gripper"/>
+		<mimic joint="left_gripper_joint" multiplier="1" offset="0"/>
+	</joint>
+
+</robot>
