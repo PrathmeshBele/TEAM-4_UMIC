@@ -80,3 +80,14 @@ Name : Gangadhar
 Date : 12/8/20
 *Worked a little on adding colors to sign board in the gazebo. So actually, I made the SW model such that the arrow, boar, and
  pole could be exported as different links. Added colors to them in gazebo. Finished the environment.
+ 
+Name : Prasann
+Date : 12/8/20
+Worked with prathamesh and gangadhar to load the test world which contains red/green balls as well as left-right and straight arrow signs.
+Also worked on importing the robot model to the world with little success.
+Learnt file structure of gazebo and urdf.
+
+Name : Prasann
+Date : 13/8/20
+Built the claw mechanism in urdf from scratch as the solid works assembly was not being imported.
+Mechanism is stable and joints move correctly, controls need to be added after which testing can be performed on balls.
