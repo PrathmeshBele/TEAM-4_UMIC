@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
-     Commit Version: 1.4.4-24-g24328f6  Build Version: 1.5.7084.36479
-     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+
 <robot
   name="bot11">
   <link
@@ -44,6 +42,8 @@
       </geometry>
     </collision>
   </link>
+
+
   <link
     name="FRW">
     <inertial>
@@ -84,6 +84,8 @@
       </geometry>
     </collision>
   </link>
+
+
   <joint
     name="FRWJ"
     type="continuous">
@@ -99,6 +101,8 @@
     <safety_controller
       k_velocity="0" />
   </joint>
+
+
   <link
     name="FLW">
     <inertial>
@@ -139,6 +143,8 @@
       </geometry>
     </collision>
   </link>
+
+
   <joint
     name="FLWJ"
     type="continuous">
@@ -609,21 +615,21 @@
     <safety_controller
       k_velocity="0" />
   </joint>
-  <link
+  <!--<link
     name="F1">
     <inertial>
       <origin
-        xyz="-0.15654 -0.0064437 0.34858"
+        xyz="0.00022086 -0.059319 0.037402"
         rpy="0 0 0" />
       <mass
         value="0.026963" />
       <inertia
         ixx="3.4145E-05"
         ixy="-3.7053E-06"
-        ixz="1.3008E-11"
+        ixz="1.4729E-11"
         iyy="7.6085E-06"
-        iyz="-4.7018E-11"
-        izz="3.5529E-05" />
+        iyz="-5.8707E-11"
+        izz="3.5528E-05" />
     </inertial>
     <visual>
       <origin
@@ -631,7 +637,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://bot11/meshes/F1.STL" />
+          filename="package://bot11/meshes/F3.STL" />
       </geometry>
       <material
         name="">
@@ -645,7 +651,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://bot11/meshes/F1.STL" />
+          filename="package://bot11/meshes/F3.STL" />
       </geometry>
     </collision>
   </link>
@@ -653,14 +659,14 @@
     name="F1J"
     type="revolute">
     <origin
-      xyz="0.402500000000001 -0.0524999999999964 0"
-      rpy="-0.421429094018879 -0.99089423827019 0.491952211341784" />
+      xyz="0.0504615242270688 -0.042 -0.0125980762113492"
+      rpy="-0.421429094018828 0.990894238270137 0.491952211341744" />
     <parent
       link="CH" />
     <child
       link="F1" />
     <axis
-      xyz="0 0 -1" />
+      xyz="0 0 1" />
     <limit
       lower="0"
       upper="1.0472"
@@ -668,7 +674,7 @@
       velocity="0.125" />
     <safety_controller
       k_velocity="0" />
-  </joint>
+  </joint>-->
   <link
     name="F2">
     <inertial>
@@ -807,7 +813,7 @@
     </inertial>
     <visual>
       <origin
-        xyz="0 0 0"
+        xyz="0.225 0 0"
         rpy="0 0 0" />
       <geometry>
         <mesh
@@ -821,7 +827,7 @@
     </visual>
     <collision>
       <origin
-        xyz="0 0 0"
+        xyz="0.225 0 0"
         rpy="0 0 0" />
       <geometry>
         <mesh
@@ -840,7 +846,7 @@
     <child
       link="Back" />
     <axis
-      xyz="0 0 -1" />
+      xyz="0 -1 0" />
     <limit
       lower="-0.15"
       upper="0"
