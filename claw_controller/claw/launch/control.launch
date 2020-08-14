@@ -1,0 +1,38 @@
+<launch>
+  <arg name="model" default="$(find claw)/urdf/claw.urdf"/>
+  <!--arg name="rvizconfig" default="$(find bot4)/urdf/urdf.rviz" /-->
+
+  <include file="$(find claw)/launch/gazebo.launch">
+    <arg name="model" value="$(arg model)" />
+  </include>
+
+  <!--node name="rviz" pkg="rviz" type="rviz" args="-d $(arg model)" /-->
+
+  <rosparam command="load"
+            file="$(find claw)/config/joints.yaml"
+            ns="claw_joint_state_controller" />
+
+  <rosparam command="load"
+            file="$(find claw)/config/horizontal.yaml"
+            ns="claw_horizontal_controller" />
+
+  <rosparam command="load"
+            file="$(find claw)/config/vertical.yaml"
+            ns="claw_vertical_controller" />
+
+  <rosparam command="load"
+            file="$(find claw)/config/gripper.yaml"
+            ns="claw_gripper_controller" />
+
+
+  <node name="claw_controller_spawner" pkg="controller_manager" type="spawner"
+    args="claw_joint_state_controller
+          claw_horizontal_controller
+          claw_vertical_controller
+          claw_gripper_controller
+          --shutdown-timeout 3"/>
+
+  <!--node name="rqt_robot_steering" pkg="rqt_robot_steering" type="rqt_robot_steering">
+    <param name="default_topic" value="/claw_horizontal_controller/command"/>
+  </node-->
+</launch>
