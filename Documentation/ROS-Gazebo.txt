@@ -48,6 +48,10 @@ I got atleast the base at the right postion with wheels and camera, but
 that was when I removed extension poles, so I know I have to focus on those parts and 
 we also have seperate packages for testing controls.
 
+Name : Aryan
+Date : 10/8/20
+Imported the road.world file in the gazebo environment and searched and read a few things about controls from ros tutorials. faced an error in the road environment that the road was glitching (appearing and disapearing constantly) . fixed this issue by identifying that there was an overlap between the road and the ground plane . so i shifted the road above in the z axis by 0.01 m.
+
 Name : Bishop Prakash
 Date : 10/8/20
 Tested the new modified robot packages with assemblies having changed effort and velocity values,
@@ -60,6 +64,12 @@ Date : 10/8/20
 adding differential drive to the bot model, but resolved them. Added cameras to the bot and made corrections to their 
 orientations.
 //For my differential drive, when I publish angular displacements, its reading them as linear and vice versa. Needs to be fixed.
+
+
+Name : Aryan
+Date : 11/8/20
+Made python script that subscribes to the topic /mybot/camera1/image_raw and gets the image information published by camera on the bot in the gazebo environment
+Faced an error when trying to view a live feed of the published images using opencv that the loop was running only once,
 
 Name : Bishop Prakash
 Date : 11/8/20
@@ -76,6 +86,10 @@ Date : 11/8/20
 *Figured out where the differential was going wrong. Fixed it, got a new issue resulting in the bounung of the bot, probably due to internal collisions.
  But I think, since the geometry of the final bot is modified, I didnt work on fixing this issue.
 
+Name : Aryan
+Date : 12/8/20
+solved the above mentioned error by defining a proper callback function and making sure rospy.spin() command was in the right place. Also Attained live camera feed of Bot from python script using opencv by making rate of image publishing of camera equal to the rate at which opencv cv2.imshow() was called.
+
 Name : Gangadhar
 Date : 12/8/20
 *Worked a little on adding colors to sign board in the gazebo. So actually, I made the SW model such that the arrow, boar, and
@@ -91,3 +105,22 @@ Name : Prasann
 Date : 13/8/20
 Built the claw mechanism in urdf from scratch as the solid works assembly was not being imported.
 Mechanism is stable and joints move correctly, controls need to be added after which testing can be performed on balls.
+
+
+Name : Aryan
+Date : 13/8/20
+Tried to implement the lane detection code in the gazebo/ros environment so as to achieve live-lane detection. Did this by incorporating the lane detection code in the above mentioned image subscriber python script. faced an error where the cv2_imshow() window was dying after the lane goes out of the frame. Fixed this error by adding python try and exception calls at relevent areas.
+
+
+Name : Aryan
+Date : 14/8/20
+modifed the lane detector code and changed it into middle line detector and tested it in gazebo environment.
+
+
+Name : Aryan
+Date : 15/8/20
+imported and tested middle line detection in the final environment containing roads, sign board and balls (red+green)
+faced an error that apart from the main road in the environment, the other roads defined in the road.world files were not visible in the camera feed of the bot but were visible in the gazebo screen. temporarily solved this issue with help of Sai, by defining a singal road element for the straight and right road.
+Also tried to implement sign board detection code writen by prasann in ROS/gazebo but found some errors which prasann is fixing.
+
+
