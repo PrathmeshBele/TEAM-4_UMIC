@@ -1,0 +1,787 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.4.4-24-g24328f6  Build Version: 1.5.7084.36479
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="bot16">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.029232 5.6957E-05 0.047061"
+        rpy="0 0 0" />
+      <mass
+        value="10.067" />
+      <inertia
+        ixx="0.22006"
+        ixy="6.9803E-05"
+        ixz="-0.0014375"
+        iyy="0.19974"
+        iyz="-7.4306E-05"
+        izz="0.35668" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bot16/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bot16/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="FRW">
+    <inertial>
+      <origin
+        xyz="0 -7.5392E-05 -0.089381"
+        rpy="0 0 0" />
+      <mass
+        value="0.8334" />
+      <inertia
+        ixx="0.0021574"
+        ixy="4.3368E-19"
+        ixz="1.7523E-19"
+        iyy="0.0021606"
+        iyz="-8.5571E-07"
+        izz="0.0039286" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bot16/meshes/FRW.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bot16/meshes/FRW.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FRWJ"
+    type="continuous">
+    <origin
+      xyz="0.125 -0.13 -0.025"
+      rpy="1.5707963267949 0.39309481042652 -3.14159265358979" />
+    <parent
+      link="base_link" />
+    <child
+      link="FRW" />
+    <axis
+      xyz="0 0 1" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="RRW">
+    <inertial>
+      <origin
+        xyz="-2.7756E-17 -7.5392E-05 -0.089381"
+        rpy="0 0 0" />
+      <mass
+        value="0.8334" />
+      <inertia
+        ixx="0.0021574"
+        ixy="6.5052E-19"
+        ixz="4.6852E-20"
+        iyy="0.0021606"
+        iyz="-8.5571E-07"
+        izz="0.0039286" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bot16/meshes/RRW.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bot16/meshes/RRW.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RRWJ"
+    type="continuous">
+    <origin
+      xyz="-0.125 -0.13 -0.025"
+      rpy="1.5707963267949 0.39309481042652 -3.14159265358979" />
+    <parent
+      link="base_link" />
+    <child
+      link="RRW" />
+    <axis
+      xyz="0 0 1" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="FLW">
+    <inertial>
+      <origin
+        xyz="0 -7.5392E-05 -0.089381"
+        rpy="0 0 0" />
+      <mass
+        value="0.8334" />
+      <inertia
+        ixx="0.0021574"
+        ixy="-8.7964E-21"
+        ixz="2.7837E-19"
+        iyy="0.0021606"
+        iyz="-8.5571E-07"
+        izz="0.0039286" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bot16/meshes/FLW.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bot16/meshes/FLW.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FLWJ"
+    type="continuous">
+    <origin
+      xyz="0.125000000000004 0.13 -0.025"
+      rpy="1.5707963267949 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="FLW" />
+    <axis
+      xyz="0 0 1" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="RLW">
+    <inertial>
+      <origin
+        xyz="-1.3878E-17 -7.5392E-05 -0.089381"
+        rpy="0 0 0" />
+      <mass
+        value="0.8334" />
+      <inertia
+        ixx="0.0021574"
+        ixy="-8.7964E-21"
+        ixz="2.7837E-19"
+        iyy="0.0021606"
+        iyz="-8.5571E-07"
+        izz="0.0039286" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bot16/meshes/RLW.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bot16/meshes/RLW.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RLWJ"
+    type="continuous">
+    <origin
+      xyz="-0.124999999999996 0.13 -0.025"
+      rpy="1.5707963267949 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="RLW" />
+    <axis
+      xyz="0 0 1" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="FC">
+    <inertial>
+      <origin
+        xyz="0.015 -6.9389E-18 -3.7101E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.075" />
+      <inertia
+        ixx="3.125E-05"
+        ixy="0"
+        ixz="0"
+        iyy="2.125E-05"
+        iyz="-1.9516E-21"
+        izz="2.125E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bot16/meshes/FC.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bot16/meshes/FC.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FCJ"
+    type="fixed">
+    <origin
+      xyz="0.225 0 0.04"
+      rpy="1.5707963267949 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="FC" />
+    <axis
+      xyz="0 0 0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="RC">
+    <inertial>
+      <origin
+        xyz="0.015 0 -6.9389E-18"
+        rpy="0 0 0" />
+      <mass
+        value="0.075" />
+      <inertia
+        ixx="3.125E-05"
+        ixy="-1.6263E-22"
+        ixz="4.2352E-22"
+        iyy="2.125E-05"
+        iyz="-1.3056E-21"
+        izz="2.125E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bot16/meshes/RC.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bot16/meshes/RC.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RCJ"
+    type="fixed">
+    <origin
+      xyz="0.0500000000000001 -0.23 0.125"
+      rpy="1.5707963267949 0 1.5707963267949" />
+    <parent
+      link="base_link" />
+    <child
+      link="RC" />
+    <axis
+      xyz="0 0 0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="LC">
+    <inertial>
+      <origin
+        xyz="0.015 0 6.9389E-18"
+        rpy="0 0 0" />
+      <mass
+        value="0.075" />
+      <inertia
+        ixx="3.125E-05"
+        ixy="-1.6263E-22"
+        ixz="4.2352E-22"
+        iyy="2.125E-05"
+        iyz="6.5052E-22"
+        izz="2.125E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bot16/meshes/LC.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bot16/meshes/LC.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LCJ"
+    type="fixed">
+    <origin
+      xyz="0.05 0.2 0.125"
+      rpy="1.5707963267949 0 1.5707963267949" />
+    <parent
+      link="base_link" />
+    <child
+      link="LC" />
+    <axis
+      xyz="0 0 0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="B">
+    <inertial>
+      <origin
+        xyz="0.00625 0.099085 -2.2196E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.92892" />
+      <inertia
+        ixx="0.013926"
+        ixy="-1.0304E-36"
+        ixz="3.5706E-20"
+        iyy="0.010898"
+        iyz="-5.0118E-19"
+        izz="0.0030521" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bot16/meshes/B.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bot16/meshes/B.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="BJ"
+    type="prismatic">
+    <origin
+      xyz="-0.225 0 0.0228173180014822"
+      rpy="1.5707963267949 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="B" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-0.15"
+      upper="0"
+      effort="100"
+      velocity="0.2" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="EP1">
+    <inertial>
+      <origin
+        xyz="0.1725 0 3.7297E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.22" />
+      <inertia
+        ixx="1.4667E-05"
+        ixy="0"
+        ixz="-5.2475E-21"
+        iyy="0.0055532"
+        iyz="1.2721E-22"
+        izz="0.0055532" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bot16/meshes/EP1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bot16/meshes/EP1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="EP1J"
+    type="prismatic">
+    <origin
+      xyz="0 0.00500000000000016 0.33"
+      rpy="1.5707963267949 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="EP1" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="0"
+      upper="0.35"
+      effort="100"
+      velocity="0.5" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="EP2">
+    <inertial>
+      <origin
+        xyz="0 -0.14 -8.6736E-19"
+        rpy="0 0 0" />
+      <mass
+        value="0.12" />
+      <inertia
+        ixx="0.000904"
+        ixy="-6.7101E-37"
+        ixz="-1.8901E-22"
+        iyy="8E-06"
+        iyz="-2.1176E-21"
+        izz="0.000904" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bot16/meshes/EP2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bot16/meshes/EP2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="EP2J"
+    type="prismatic">
+    <origin
+      xyz="0.4575 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="EP1" />
+    <child
+      link="EP2" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-0.23"
+      upper="0"
+      effort="100"
+      velocity="0.5" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="EP3">
+    <inertial>
+      <origin
+        xyz="0 -3.4694E-18 0.11"
+        rpy="0 0 0" />
+      <mass
+        value="0.088" />
+      <inertia
+        ixx="0.00035787"
+        ixy="7.5985E-23"
+        ixz="2.8977E-22"
+        iyy="0.00035787"
+        iyz="1.8215E-21"
+        izz="5.8667E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bot16/meshes/EP3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bot16/meshes/EP3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="EP3J"
+    type="fixed">
+    <origin
+      xyz="0 -0.3 -0.11"
+      rpy="0 0 0" />
+    <parent
+      link="EP2" />
+    <child
+      link="EP3" />
+    <axis
+      xyz="0 0 0" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="FR">
+    <inertial>
+      <origin
+        xyz="0.075 0.0031859 -0.044514"
+        rpy="0 0 0" />
+      <mass
+        value="0.32983" />
+      <inertia
+        ixx="0.0007079"
+        ixy="-2.8509E-19"
+        ixz="2.3905E-19"
+        iyy="0.00088613"
+        iyz="6.0085E-06"
+        izz="0.0014374" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bot16/meshes/FR.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bot16/meshes/FR.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FRJ"
+    type="prismatic">
+    <origin
+      xyz="0.075 -0.085 0.17"
+      rpy="3.14159265358979 0 3.14159265358979" />
+    <parent
+      link="EP3" />
+    <child
+      link="FR" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.045"
+      upper="0"
+      effort="100"
+      velocity="0.2" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+  <link
+    name="FL">
+    <inertial>
+      <origin
+        xyz="0.075 0.0031859 0.0054855"
+        rpy="0 0 0" />
+      <mass
+        value="0.32983" />
+      <inertia
+        ixx="0.0007079"
+        ixy="-6.4213E-19"
+        ixz="1.0921E-18"
+        iyy="0.00088613"
+        iyz="6.0085E-06"
+        izz="0.0014374" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bot16/meshes/FL.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://bot16/meshes/FL.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FLJ"
+    type="prismatic">
+    <origin
+      xyz="-0.0749999999999999 -0.085 0"
+      rpy="0 0 0" />
+    <parent
+      link="EP3" />
+    <child
+      link="FL" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0.045"
+      effort="100"
+      velocity="0.2" />
+    <safety_controller
+      k_velocity="0" />
+  </joint>
+</robot>
