@@ -19,8 +19,8 @@ i=0
 
 
 def show_image(img):
-    cv2.imwrite('/home/aryan/mybot_ws/src/mybot_description/scripts/lol.jpg',img)
-    img=cv2.imread('/home/aryan/mybot_ws/src/mybot_description/scripts/lol.jpg')
+    cv2.imwrite('/home/prathmesh/umic/src/mybot_description/scripts/lol.jpg',img)
+    img=cv2.imread('/home/prathmesh/umic/src/mybot_description/scripts/lol.jpg')
     plt.imshow(img)
    
     cv2.waitKey(0)
@@ -34,8 +34,8 @@ def image_callback(img_msg):
     try:
         cv_image = bridge.imgmsg_to_cv2(img_msg, "passthrough")
         #show_image(cv_image)
-        cv2.imwrite('/home/aryan/mybot_ws/src/mybot_description/scripts/lol.jpg',cv_image)
-        img=cv2.imread('/home/aryan/mybot_ws/src/mybot_description/scripts/lol.jpg')
+        cv2.imwrite('/home/prathmesh/umic/src/mybot_description/scripts/lol.jpg',cv_image)
+        img=cv2.imread('/home/prathmesh/umic/src/mybot_description/scripts/lol.jpg')
         cv2.imshow('',img)
    
         cv2.waitKey(100)
