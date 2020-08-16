@@ -153,4 +153,10 @@ receiving the live feed of images and performing relevant operation to it so as 
 arrow class and show the contour of the arrow. I have added these files in the 'scripts' folder of this repo.
 I also implemented a simple Proportional-error based control for the bot such that it follows the detected middle line of the road.(image.py in scripts folder)
 
+Name : Prathmesh
+Date : 16/8/20
+tried to attach the laser sensor to the new ot
+encountring ploblem like laser blinking continuously and passing through the object
+
+
 
