@@ -12,11 +12,12 @@ import matplotlib.pyplot as plt
 from sensor_msgs.msg import Image
 import cv2
 from cv_bridge import CvBridge, CvBridgeError
+from geometry_msgs.msg import Twist
 
 bridge = CvBridge()
- 
+pub = rospy.Publisher('/cmd_vel', Twist, queue_size=10)
 i=0
-
+msg=Twist()
 def calculate_lines(frame, lines):
     # Empty arrays to store the coordinates of the left and right lines
     left = []
@@ -78,7 +79,12 @@ def show_image(img):
    
     cv2.waitKey(0)
 
- 
+def controls(cx,cy):
+	error=cx-200
+	msg.linear.x=0.1
+	msg.angular.z=-error/100
+	pub.publish(msg)
+
 def image_callback(img_msg):
     # 
     rospy.loginfo(img_msg.header)
@@ -102,26 +108,35 @@ def image_callback(img_msg):
             upper=np.array(upper,dtype='uint8')
             mask=cv2.inRange(img,lower,upper)
             output=cv2.bitwise_and(img,img,mask=mask)
-            
-           
-        
-        segment=output #+masks[1]+masks[2]
-        gray=cv2.cvtColor(segment,cv2.COLOR_BGR2GRAY)
-        kernel = np.ones((7,7), np.uint)
-        gray=cv2.dilate(gray, kernel, iterations=1) 
-        ret,thresh1 = cv2.threshold(gray,10,255,cv2.THRESH_BINARY)
-        lane = cv2.Canny(thresh1,90,170)
-        hough = cv2.HoughLinesP(lane, 1, np.pi / 180, 80, np.array([]), minLineLength = 5, maxLineGap = 50)
+
+        segment=output    
+        m=cv2.moments(mask,False)
         try:
+            cx,cy=m['m10']/m['m00'],m['m01']/m['m00']
+        except ZeroDivisionError:
+            cx,cy=200,200
+        centroid = cv2.circle(segment, (int(cx),int(cy)), radius=5, color=(15, 150, 255), thickness=-1)
+            
+        
+        #segment=output #+masks[1]+masks[2]
+       # gray=cv2.cvtColor(segment,cv2.COLOR_BGR2GRAY)
+       # kernel = np.ones((7,7), np.uint)
+       # gray=cv2.dilate(gray, kernel, iterations=1) 
+      #  ret,thresh1 = cv2.threshold(gray,10,255,cv2.THRESH_BINARY)
+      #  lane = cv2.Canny(thresh1,90,170)
+      #  hough = cv2.HoughLinesP(lane, 1, np.pi / 180, 80, np.array([]), minLineLength = 5, maxLineGap = 50)
+        #try:
              
-            lines = calculate_lines(img, hough)
+         #   lines = calculate_lines(img, hough)
         #lines_visualize = visualize_lines(img, lines)
-            cv2.line(segment, (lines[0][0], lines[0][1]), (lines[0][2], lines[0][3]), (0, 255, 0), 3)
-            cv2.imshow('',segment) 
-        except:
-            cv2.imshow('',segment)
-
-
+         #   cv2.line(segment, (lines[0][0], lines[0][1]), (lines[0][2], lines[0][3]), (0, 255, 0), 3)
+         #   cv2.imshow('',segment) 
+        #except:
+           # cv2.imshow('',segment)
+    
+ 
+        controls(cx,cy)
+        cv2.imshow('',centroid)
         cv2.waitKey(100)   
     except CvBridgeError, e:
         rospy.logerr("CvBridge Error: {0}".format(e))
@@ -130,9 +145,9 @@ def listener():
     
  
     rospy.init_node('opencv_example', anonymous=False)
-
+ 
     rospy.Subscriber("/mybot/camera1/image_raw", Image, image_callback)
-
+     
     # spin() simply keeps python from exiting until this node is stopped
     rospy.spin()
 
