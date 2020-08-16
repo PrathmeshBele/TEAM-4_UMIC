@@ -7,3 +7,5 @@ mechanical folder contains the structure related files for our autonomous robot.
 https://github.com/osrf/citysim
 clone this repo and replace the world folder by the one which I uploaded
 I have removed unwanted stuff from original one
+
+The scripts folder contains the python scripts for lane detection and arrow detection implemented in ROS/GAZEBO as nodes.
