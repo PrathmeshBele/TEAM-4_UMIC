@@ -15,3 +15,8 @@ modified the lane detection code to middle line detection code and tested it out
 Member Name : Prasann Viswanathan
 Date : 05/08/20 - 06/08/20
 Designed algorithm for arrow detection using openCV which will be tweaked to perform left and right turns of our robot.
+
+Member Name : Aryan Kolapkar
+Date : 16th august
+modified the middle line detection code (image.py in scripts folder) such that instead of giving final output as equation 
+of line, it gives the final output as a point which represents the centroid of the middle_line mask.
