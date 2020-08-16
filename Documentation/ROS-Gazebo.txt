@@ -138,3 +138,8 @@ by defining a singal road element for the straight and right road.
 Also tried to implement sign board detection code writen by prasann in ROS/gazebo but found some errors which prasann is fixing.
 
 
+Name : Aryan
+Date : 16/8/20
+implemented Prasann's arrow detection and classification code in ROS/GAZEBO by making a node subscribing to the camera topic 
+receiving the live feed of images and performing relevant operation to it so as to ptint out the 
+arrow class and show the contour of the arrow. I have added these files in the 'scripts' folder of this repo.
