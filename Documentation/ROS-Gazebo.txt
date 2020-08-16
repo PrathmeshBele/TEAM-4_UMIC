@@ -109,6 +109,10 @@ Worked with prathamesh and gangadhar to load the test world which contains red/g
 Also worked on importing the robot model to the world with little success.
 Learnt file structure of gazebo and urdf.
 
+Name : Prathmesh
+Date : 12/8/20
+Modified the environment(env.world) by placing green and red balls for testing of bot
+
 Name : Prasann
 Date : 13/8/20
 Built the claw mechanism in urdf from scratch as the solid works assembly was not being imported.
