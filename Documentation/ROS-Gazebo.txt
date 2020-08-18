@@ -158,5 +158,11 @@ Date : 16/8/20
 tried to attach the laser sensor to the new ot
 encountring ploblem like laser blinking continuously and passing through the object
 
+Name : Prasann
+Date : 16/8/20
+Fixed arrow classification code so that it works perfeclty on environement
 
+Name : Prasann
+Date : 18/8/20
+Worked on turning algorithm which ensures the bot turns accurately at the right moment that the arrow is detected.
 
