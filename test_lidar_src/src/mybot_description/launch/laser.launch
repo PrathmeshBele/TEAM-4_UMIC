@@ -1,5 +1,0 @@
-<launch>
-    <node pkg="mybot_description" type="dist.py" name="scan_values" output="screen">
-        
-    </node>
-</launch>
