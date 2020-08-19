@@ -20,3 +20,8 @@ Member Name : Aryan Kolapkar
 Date : 16th august
 modified the middle line detection code (image.py in scripts folder) such that instead of giving final output as equation 
 of line, it gives the final output as a point which represents the centroid of the middle_line mask.
+
+
+Name : Prasann
+Date : 16/8/20
+Fixed arrow classification code so that it works perfeclty on environement
