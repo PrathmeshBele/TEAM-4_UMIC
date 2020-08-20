@@ -789,60 +789,40 @@
 
 
 
-    <joint
-    name="LJ"
-    type="fixed">
+  <joint name="hokuyo_joint" type="fixed">
     <origin
-      xyz="0 0.05 0"
-      rpy="1.570796326 0 0" />
+      xyz="0.04 0.05 0"
+      rpy="-1.57 0 0" />
     <parent
       link="F" />
-    <child
-      link="L" />
+	<child link="hokuyo_link"/>
     <axis
-      xyz="0 0 0" />
-    <safety_controller
-      k_velocity="0" />
+      xyz="0 1 0" />
+    <!-- <safety_controller
+      k_velocity="0" /> -->
   </joint>
 
   <!-- Hokuyo Laser -->
-  <link
-    name="L">
-    <inertial>
-      <origin
-        xyz="0.025 1.3878E-17 1.1371E-16"
-        rpy="0 0 0" />
-      <mass
-        value="0.075" />
-      <inertia
-        ixx="3.125E-05"
-        ixy="2.5429E-36"
-        ixz="-5.8031E-37"
-        iyy="2.125E-05"
-        iyz="-2.9499E-21"
-        izz="2.125E-05" />
-    </inertial>
-    <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://bot1/meshes/L.STL" />
-      </geometry>
-      <material
-        name="green">
-      </material>
-    </visual>
+  <link name="hokuyo_link">
     <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh
-          filename="package://bot1/meshes/L.STL" />
+    <box size="0.1 0.1 0.1"/>
       </geometry>
     </collision>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://bot1/meshes/hokuyo.dae"/>
+      </geometry>
+    </visual>
+
+    <inertial>
+      <mass value="1e-5" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
   </link>
 
 
@@ -877,7 +857,7 @@
     </inertial>
   </link> -->
 
-   <gazebo reference="L">
+   <gazebo reference="hokuyo_link">
     <sensor type="ray" name="head_hokuyo_sensor">
       <pose>0 0 0 0 0 0</pose>
       <visualize>true</visualize>
@@ -885,15 +865,15 @@
       <ray>
         <scan>
           <horizontal>
-            <samples>1</samples>
-            <resolution>21</resolution>
+            <samples>21</samples>
+            <resolution>1</resolution>
             <min_angle>-0.017453292</min_angle>
             <max_angle>0.017453292</max_angle>
           </horizontal>
         </scan>
         <range>
-          <min>0.01</min>
-          <max>10</max>
+          <min>0.10</min>
+          <max>30.0</max>
           <resolution>0.01</resolution>
         </range>
         <noise>
@@ -907,8 +887,8 @@
         </noise>
       </ray>
       <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_laser.so">
-        <topicName>/bot1/laser/scan</topicName>
-        <frameName>L</frameName>
+        <topicName>/rrbot/laser/scan</topicName>
+        <frameName>hokuyo_link</frameName>
       </plugin>
     </sensor>
   </gazebo>
