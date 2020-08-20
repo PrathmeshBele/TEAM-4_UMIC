@@ -85,7 +85,7 @@ def controls(cx,cy):
 	error=cx-200
 	integral_sum=integral_sum+error*0.1
 	msg.angular.z=-(error/100)#-integral_sum/300
-	msg.linear.x=0.1 
+	msg.linear.x=0.1-abs(error/2000)
 	pub.publish(msg)
 
 
@@ -103,17 +103,21 @@ def controls(cx,cy):
 	#rospy.Subscriber("/arrow_msg", String, arrow_callback)
 
 def stop_controls(rx,ry):
-	time.sleep(2.5)
-	error_stop=150-ry
-	msg.linear.x=0
-	msg.angular.z=0
-	pub.publish(msg)
-
-def turn_controls(rx,ry):
-	msg.angular.z=-10
-	msg.linear.x=0
-	pub.publish(msg)
-	time.sleep(60)
+    time.sleep(0.1)
+    error_stop=150-ry
+    msg.linear.x=0
+    msg.angular.z=0
+    pub.publish(msg)
+    time.sleep(0.1)
+    msg.linear.x=0
+    msg.angular.z=-100
+    pub.publish(msg)
+    time.sleep(0.3)
+#def turn_controls(rx,ry):
+	##msg.angular.z=-100
+	#msg.linear.x=0
+	#pub.publish(msg)
+	#time.sleep(70)
 
 
 def image_callback(img_msg):
@@ -175,12 +179,12 @@ def image_callback(img_msg):
         #arrow_work(cx,cy,centroid)
 
  
-        if cx==200 and cy==400 :
+        if cx>190 and cy>390 :
         	stop_controls(rx,ry)
         else:
             controls(cx,cy)
-        if ry>76 and cx==200 and cy==400:
-        	turn_controls(rx,ry)
+        #if ry>76 and cx==200 and cy==400:
+        	#turn_controls(rx,ry)
         show_image(centroid)
 
         #cv2.imshow('',centroid)
