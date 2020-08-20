@@ -13,7 +13,7 @@ from sensor_msgs.msg import Image
 import cv2
 from cv_bridge import CvBridge, CvBridgeError
 from geometry_msgs.msg import Twist
-
+import time
 bridge = CvBridge()
 pub = rospy.Publisher('/cmd_vel', Twist, queue_size=10)
 i=0
@@ -103,10 +103,17 @@ def controls(cx,cy):
 	#rospy.Subscriber("/arrow_msg", String, arrow_callback)
 
 def stop_controls(rx,ry):
+	time.sleep(2.5)
 	error_stop=150-ry
 	msg.linear.x=0
 	msg.angular.z=0
-	pub.publish(msg)	
+	pub.publish(msg)
+
+def turn_controls(rx,ry):
+	msg.angular.z=-10
+	msg.linear.x=0
+	pub.publish(msg)
+	time.sleep(60)
 
 
 def image_callback(img_msg):
@@ -166,11 +173,14 @@ def image_callback(img_msg):
         
 
         #arrow_work(cx,cy,centroid)
-        if ry>100 or (cx,cy==200,400):
+
+ 
+        if cx==200 and cy==400 :
         	stop_controls(rx,ry)
         else:
             controls(cx,cy)
-
+        if ry>76 and cx==200 and cy==400:
+        	turn_controls(rx,ry)
         show_image(centroid)
 
         #cv2.imshow('',centroid)

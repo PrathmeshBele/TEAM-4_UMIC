@@ -25,42 +25,39 @@
     </gui>
 
     <!--road-->
-    <road name="road_main">
-      <width>7.34</width>
+    <!--road name="road_main">
+ 
+      <width>10.00</width>
       <point>0 0 0.01</point>
-      <point>25 0 0</point>
+      <point>100 0 0.0</point>
       <material name="road_color">
       	<color rgba="1.0 0.0 0.0 1.0"/>
       </material>
+    </road-->
+		
+    <road name='road_for_left'>
+      <width>5</width>
+      <point>25 -25 0.01</point>
+      <point>25 25 0.01</point>
     </road>
 		
-		<road name="road_for_left">
-			<width>10</width>
-			<point>25 -25 0.01</point>
-			<point>25 25 0</point>
-			<material name="road_color2">
-				<color rgba="0 0 0.8 1"/>
-			</material>
-		</road>
-		
-		<road name="road_for_right">
+		<!--road name="road_for_right">
 			<width>10</width>
 			<point>20 -25 0.01</point>
-			<point>50 -25 0</point>
-			<material name="road_color2">
-				<color rgba="0 0 0.8 1"/>
+			<point>50 -25 0.01</point>
+			<material name="road_color">
+			    <color rgba="1.0 0.0 0.0 1.0"/>
 			</material>
 		</road>
 		
 		<road name="road_for_straight">
 			<width>10</width>
 			<point>25 25 0.01</point>
-			<point>25 50 0</point>
-			<material name="road_color2">
-				<color rgba="0 0 0.8 1"/>
+			<point>25 50 0.01</point>
+			<material name="road_color">
+			   <color rgba="1.0 0.0 0.0 1.0"/>
 			</material>
-		</road>
-		
-			
+		</road-->
+
   </world>
 </sdf>
