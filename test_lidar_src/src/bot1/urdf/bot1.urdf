@@ -795,7 +795,7 @@
       rpy="-1.57 0 0" />
     <parent
       link="F" />
-	<child link="hokuyo_link"/>
+  <child link="hokuyo_link"/>
     <axis
       xyz="0 1 0" />
     <!-- <safety_controller
@@ -872,7 +872,7 @@
           </horizontal>
         </scan>
         <range>
-          <min>0.10</min>
+          <min>0.20</min>
           <max>30.0</max>
           <resolution>0.01</resolution>
         </range>
