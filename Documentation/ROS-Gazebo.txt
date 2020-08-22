@@ -158,14 +158,7 @@ Date : 16/8/20
 tried to attach the laser sensor to the new ot
 encountring ploblem like laser blinking continuously and passing through the object
 
-Name : Aryan
-Date : 18/8/20
-wrote code for making the turning of bot
-
 Name : Prasann
 Date : 18/8/20
 Worked on turning algorithm which ensures the bot turns accurately at the right moment that the arrow is detected.
 
-Name : Aryan
-Date : 21/8/20
-worked on integrating the line follower code with the arrow direction code such that bot turns only in the direction given by the arrow classification node. did this by paralely running bot scripts and sending direction information through topic. Faced errors with frame rate and execution time, resolved it later.
