@@ -933,7 +933,7 @@
 
   <joint name="sonar_front_joint" type="fixed">
     <origin
-      xyz="0.1 0.015 -0.02"
+      xyz="0.13 0.015 -0.02"
       rpy="3.1415926 0 -1.570796326" />
     <parent
       link="LA" />
