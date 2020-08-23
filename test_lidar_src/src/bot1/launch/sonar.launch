@@ -1,0 +1,5 @@
+<launch>
+    <node pkg="bot1" type="sonar.py" name="scan_values_1" output="screen">
+        
+    </node>
+</launch>
