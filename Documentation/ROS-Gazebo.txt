@@ -162,3 +162,8 @@ Name : Prasann
 Date : 18/8/20
 Worked on turning algorithm which ensures the bot turns accurately at the right moment that the arrow is detected.
 
+
+Name : Aryan
+Date : 19/8/20
+integrated arrow classification code and line follower code such that they work in sync and bot turn in the direction of arrow when intersection appears.
+
