@@ -175,3 +175,7 @@ Name : Prathmesh
 Date : 23/8/20
 Attached a sonar on left arm of the bot to detect the dumping site
 
+
+Name : Aryan
+Date : 23/8/20
+integrated the ball pickup and push code and made it work in sync along with the laservalues and line follower code.
