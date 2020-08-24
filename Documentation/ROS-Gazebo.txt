@@ -167,3 +167,11 @@ Name : Aryan
 Date : 19/8/20
 integrated arrow classification code and line follower code such that they work in sync and bot turn in the direction of arrow when intersection appears.
 
+Name : Prathmesh
+Date : 20/8/20
+Solved the problems with LiDAR
+
+Name : Prathmesh
+Date : 23/8/20
+Attached a sonar on left arm of the bot to detect the dumping site
+
