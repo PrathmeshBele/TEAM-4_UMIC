@@ -17,10 +17,11 @@ from cv_bridge import CvBridge, CvBridgeError
 from geometry_msgs.msg import Twist
 import time
  
+ball_color_boundaries = [ ([0, 0, 220], [30, 30, 255]), ([0, 220, 0], [30, 255, 30])]
 
 bridge = CvBridge()
 pub = rospy.Publisher('/bot1_diffdrive_controller/cmd_vel', Twist, queue_size=10)
-
+msg_ball=MultiArrayDimension()
 msg=Twist()
 
 ## Flaps and Basic Functions ##
@@ -29,6 +30,76 @@ pub_lf = rospy.Publisher('/bot1_lf_controller/command', Float64, queue_size=10)
 pub_rf = rospy.Publisher('/bot1_rf_controller/command', Float64, queue_size=10)
 #pub_df = rospy.Publisher('/bot1_diffdrive_controller/cmd_vel', Twist, queue_size=10)
  
+def classifier(img):
+    masks = []
+    for (low, up) in ball_color_boundaries:
+        low=np.array(low, dtype='uint8')
+        up=np.array(up, dtype='uint8')
+        mask=cv2.inRange(img, low, up)
+        op=cv2.bitwise_and(img, img, mask=mask)
+        masks.append(op)
+
+    red_zone = cv2.cvtColor(masks[0], cv2.COLOR_BGR2GRAY)
+    green_zone = cv2.cvtColor(masks[1], cv2.COLOR_BGR2GRAY)
+
+    _, red_zone = cv2.threshold(red_zone, 20, 255, cv2.THRESH_BINARY)
+    _, green_zone = cv2.threshold(green_zone, 20, 255, cv2.THRESH_BINARY)
+
+    _,contours_red, hierarchy = cv2.findContours(red_zone, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+    _,contours_green, hierarchy = cv2.findContours(green_zone, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+
+    MAX = 0.0
+    color = ""
+    idx = -1
+
+    for i in range(len(contours_red)):
+        if(cv2.contourArea(contours_red[i])>MAX):
+            MAX = cv2.contourArea(contours_red[i])
+            color = "red"
+            idx = i
+
+    for i in range(len(contours_green)):
+        if(cv2.contourArea(contours_green[i])>MAX):
+            MAX = cv2.contourArea(contours_green[i])
+            color = "green"
+            idx = i
+
+    if(idx != -1 and MAX>70):
+        if(color == "green"):
+            M = cv2.moments(contours_green[idx])
+            cx = int(M['m10']/M['m00'])
+            cy = int(M['m01']/M['m00'])
+            cv2.circle(img, (cx, cy), 2, (255, 0, 0), 2)
+            msg_ball.label='green'
+            msg_ball.size=cx
+            msg_ball.stride=cy
+            #pub.publish(msg)
+            #print("green", cx, cy)
+            return msg_ball
+        else:
+            M = cv2.moments(contours_red[idx])
+            cx = int(M['m10']/M['m00'])
+            cy = int(M['m01']/M['m00'])
+            cv2.circle(img, (cx, cy), 2, (255, 0, 0), 2)
+            msg_ball.label='red'
+            msg_ball.size=cx
+            msg_ball.stride=cy
+            #pub.publish(msg)
+            #print("red", cx, cy)
+            return msg_ball
+        #cv2.imshow('',img)
+        #cv2.waitKey(10)
+    else:
+        #cv2.imshow('',img)
+        #cv2.waitKey(10)
+        msg_ball.label='None'
+        msg_ball.size=200
+        msg_ball.stride=400
+        #pub.publish(msg)
+        #print("None")
+        return msg_ball
+
+
 def fg_close():
 	t0 = rospy.Time.now().to_sec()
 	t1 = t0
@@ -87,14 +158,15 @@ def ball_control(color):
 	
 	if color == "red":
 		fg_close()
+		flaps_close(1)
 		rotate(0.3, 2)
 			
 		flaps_open(30)
 		time.sleep(0.5)
 		flaps_close(1)
 			
-		rotate(-0.3, 2)
-
+		rotate(-0.3, 2.5)
+         
 		
 	elif color == "green":
 		go_forward=Twist()
@@ -174,7 +246,7 @@ def controls(lx,ly):
 	msg.angular.z=-(error/1000) 
 	msg.linear.x=0.1-abs(error/2000)
 	pub.publish(msg)
-
+	#time.sleep(0.1)
  
 ##########################################
 direction='none'
@@ -211,11 +283,12 @@ def arrow_callback(str_msg):
 	#rospy.loginfo(direction)
 #########################		
 def ball_follow_control(bx):
-	error=bx-200
+	error=(bx-200)
 	msg.angular.z=-(error/100) 
 	msg.linear.x=0.1-abs(error/2000)
 	pub.publish(msg)
-	print('lol')
+	#time.sleep(0.1)
+	print(bx)
 
 
 ############################
@@ -277,28 +350,30 @@ def image_callback(img_msg):
            # cv2.imshow('',segment)
         
 
-        centroid_placeholder()
-        
-        print('ball color is: {} , bx = {} , by = {}'.format(ball_color,bx,by))
+        #centroid_placeholder()
+        ball_msg=classifier(img)
+
+        print('ball color is: {} , bx = {} , by = {}'.format(ball_msg.label,ball_msg.size,ball_msg.stride))
 
         arrow_placeholder()
 
         #arrow_work(cx,cy,centroid)
-         
+        #if ball_msg.label!='None':
+        	#cx=ball_msg.size        
         if laser_distance <0.23:
         	msg.linear.x=0
         	msg.angular.z=0
         	pub.publish(msg)
         	time.sleep(0.1)
-        	if ball_color=='red':
+        	if ball_msg.label=='red':
         		ball_control('red')
-        	elif ball_color=='green':
+        	elif ball_msg.label=='green':
         		ball_control('green')
 
         #if ball_color!='None':
         #	controls(bx,by)
-        #elif ball_color!='None':
-        #	ball_follow_control(bx)
+        #if ball_msg.label!='None':
+        	#ball_follow_control(ball_msg.size)
         elif cx==200 and cy==400: #and direction=='right':
 
             msg.linear.x=0
@@ -339,7 +414,7 @@ def listener():
     #rospy.Subscriber("/arrow_msg", String, arrow_callback)
      #spin() simply keeps python from exiting until this node is stopped
     rospy.spin()
- 
+
  
  
 if __name__ == '__main__':
@@ -354,3 +429,4 @@ if __name__ == '__main__':
 #while not rospy.is_shutdown():
     
   #  rospy.spin()
+
