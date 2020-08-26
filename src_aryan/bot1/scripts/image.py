@@ -16,6 +16,7 @@ import cv2
 from cv_bridge import CvBridge, CvBridgeError
 from geometry_msgs.msg import Twist
 import time
+import math
  
 ball_color_boundaries = [ ([0, 0, 220], [30, 30, 255]), ([0, 220, 0], [30, 255, 30])]
 
@@ -25,11 +26,78 @@ msg_ball=MultiArrayDimension()
 msg=Twist()
 
 ## Flaps and Basic Functions ##
+pub_bg = rospy.Publisher('/bot1_backgate_controller/command', Float64, queue_size=10)
 pub_fg = rospy.Publisher('/bot1_frontgate_controller/command', Float64, queue_size=10)
 pub_lf = rospy.Publisher('/bot1_lf_controller/command', Float64, queue_size=10)
 pub_rf = rospy.Publisher('/bot1_rf_controller/command', Float64, queue_size=10)
 #pub_df = rospy.Publisher('/bot1_diffdrive_controller/cmd_vel', Twist, queue_size=10)
  
+###################################### dump-script definations
+
+def bg_close():
+	t0 = rospy.Time.now().to_sec()
+	t1 = t0
+	rate2 = rospy.Rate(50)
+	while (t1 - t0) < 3:
+		pub_bg.publish(-5)
+		t1 = rospy.Time.now().to_sec()
+		rate2.sleep()
+
+def bg_open():
+	t0 = rospy.Time.now().to_sec()
+	t1 = t0
+	while (t1 - t0) < 3:
+		pub_bg.publish(-10)
+		t1 = rospy.Time.now().to_sec()
+		rate.sleep()
+
+def rotate(value, t):
+	angle = Twist()
+	angle.linear.x = 0
+	angle.angular.z = value
+	t0 = rospy.Time.now().to_sec()
+	t1 = t0
+	while (t1 - t0) < t:
+		pub.publish(angle)
+		t1 = rospy.Time.now().to_sec()
+		rate.sleep()
+
+def traverse(v,t):
+	speed = Twist()
+	speed.linear.x = v
+	t0 = rospy.Time.now().to_sec()
+	t1 = t0
+	rate_df = rospy.Rate(50)
+	while (t1 - t0) < t:
+		pub.publish(speed)
+		t1 = rospy.Time.now().to_sec()
+		rate_df.sleep()
+
+	speed.linear.x = 0
+	pub.publish(speed)
+
+#bg_close()
+pi = math.pi
+
+
+#rate = rospy.Rate(30)
+ 
+def dump():
+	
+	traverse(-0.3, 6)
+	rotate(pi/4, 11)
+	print(1)
+	bg_open()
+	traverse(-0.8, 2)
+	time.sleep(5)
+
+
+#dump()
+
+
+####################### ball detection script definations
+
+
 def classifier(img):
     masks = []
     for (low, up) in ball_color_boundaries:
@@ -99,7 +167,7 @@ def classifier(img):
         #print("None")
         return msg_ball
 
-
+########################### ball pickup, push script definations
 def fg_close():
 	t0 = rospy.Time.now().to_sec()
 	t1 = t0
@@ -177,11 +245,11 @@ def ball_control(color):
 		pub.publish(go_forward)
 		fg_open()
 		flaps_close(30)
-		time.sleep(1)
+		time.sleep(1.5)
 		fg_close()
 		flaps_close(1)
 
-
+####################################
 def calculate_lines(frame, lines):
     # Empty arrays to store the coordinates of the left and right lines
     left = []
@@ -234,7 +302,7 @@ def visualize_lines(frame, lines):
         #cv2.line(lines_visualize, (int(m[0]), int(m[1])), (int(m[2]), int(m[3])), (0, 255, 255), 5)
 
     return lines_visualize
-
+################################################################################################
 def show_image(img):
     #cv2.imwrite('/home/aryan/mybot_ws/src/mybot_description/scripts/lol.jpg',img)
     #img=cv2.imread('/home/aryan/mybot_ws/src/mybot_description/scripts/lol.jpg')
@@ -249,6 +317,7 @@ def controls(lx,ly):
 	#time.sleep(0.1)
  
 ##########################################
+
 direction='none'
 ball_color='None'
 bx=200
@@ -290,16 +359,16 @@ def ball_follow_control(bx):
 	#time.sleep(0.1)
 	print(bx)
 
-
 ############################
 def image_callback(img_msg):
-	
+	#dump()
     #print(direction) 
     laser_placeholder()
     rospy.loginfo(img_msg.header)
     print('the laser distance is: {}'.format(laser_distance))
     # Try to convert the ROS Image message to a CV2 Image
     try:
+    	#dump()
         cv_image = bridge.imgmsg_to_cv2(img_msg, "passthrough")
         #show_image(cv_image)
         cv2.imwrite('/home/aryan/final_ws/src/bot1/scripts/lol.jpg',cv_image)
@@ -357,9 +426,9 @@ def image_callback(img_msg):
 
         arrow_placeholder()
 
-        #arrow_work(cx,cy,centroid)
-        #if ball_msg.label!='None':
-        	#cx=ball_msg.size        
+   
+  ######################### main if else code:
+
         if laser_distance <0.23:
         	msg.linear.x=0
         	msg.angular.z=0
@@ -370,11 +439,8 @@ def image_callback(img_msg):
         	elif ball_msg.label=='green':
         		ball_control('green')
 
-        #if ball_color!='None':
-        #	controls(bx,by)
-        #if ball_msg.label!='None':
-        	#ball_follow_control(ball_msg.size)
-        elif cx==200 and cy==400: #and direction=='right':
+   
+        elif cx==200 and cy==400:  
 
             msg.linear.x=0
             msg.angular.z=0
@@ -398,7 +464,7 @@ def image_callback(img_msg):
             controls(cx,cy)
         #if ry>76 and cx==200 and cy==400:
         	#turn_controls(rx,ry)
-
+###########################################################
         show_image(centroid)
 
         #cv2.imshow('',centroid)
@@ -413,6 +479,7 @@ def listener():
     rospy.Subscriber("/mybot/camera1/image_raw", Image, image_callback)
     #rospy.Subscriber("/arrow_msg", String, arrow_callback)
      #spin() simply keeps python from exiting until this node is stopped
+    #dump()
     rospy.spin()
 
  
@@ -429,4 +496,3 @@ if __name__ == '__main__':
 #while not rospy.is_shutdown():
     
   #  rospy.spin()
-
