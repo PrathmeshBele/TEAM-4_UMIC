@@ -11,7 +11,7 @@ import numpy as np
 from math import atan2,asin
 from std_msgs.msg import String, Float32, MultiArrayDimension, Float64
 import matplotlib.pyplot as plt
-from sensor_msgs.msg import Image, LaserScan
+from sensor_msgs.msg import Image, LaserScan, Range
 import cv2
 from cv_bridge import CvBridge, CvBridgeError
 from geometry_msgs.msg import Twist
@@ -46,6 +46,7 @@ def bg_close():
 def bg_open():
 	t0 = rospy.Time.now().to_sec()
 	t1 = t0
+	rate = rospy.Rate(30)
 	while (t1 - t0) < 3:
 		pub_bg.publish(-10)
 		t1 = rospy.Time.now().to_sec()
@@ -57,6 +58,7 @@ def rotate(value, t):
 	angle.angular.z = value
 	t0 = rospy.Time.now().to_sec()
 	t1 = t0
+	rate = rospy.Rate(30)
 	while (t1 - t0) < t:
 		pub.publish(angle)
 		t1 = rospy.Time.now().to_sec()
@@ -241,13 +243,14 @@ def ball_control(color):
 		fg_close()
 		flaps_open(1)
 		time.sleep(1)
-		go_forward.linear.x=0.192
+		go_forward.linear.x=0.193
 		pub.publish(go_forward)
 		fg_open()
 		flaps_close(30)
 		time.sleep(1.5)
 		fg_close()
 		flaps_close(1)
+		rotate(-0.1, 2.0)
 
 ####################################
 def calculate_lines(frame, lines):
@@ -331,6 +334,9 @@ def laser_placeholder():
 def centroid_placeholder():
 	rospy.Subscriber('/ball_msg', MultiArrayDimension, ball_callback)
 
+def sonar_placeholder():
+	rospy.Subscriber('/sensor/sonar_front',Range,sonar_callback)
+
 def ball_callback(centroid_msg):
 	global ball_color
 	global bx
@@ -348,7 +354,9 @@ def arrow_callback(str_msg):
 	if str_msg=='right'or'left':
 		global direction
 		direction=str_msg
-	 
+def sonar_callback(sonar_msg):
+	global sonar_distance
+	sonar_distance=sonar_msg.range
 	#rospy.loginfo(direction)
 #########################		
 def ball_follow_control(bx):
@@ -367,6 +375,8 @@ def image_callback(img_msg):
     rospy.loginfo(img_msg.header)
     print('the laser distance is: {}'.format(laser_distance))
     # Try to convert the ROS Image message to a CV2 Image
+    sonar_placeholder()
+    print('the sonar distance is: {}'.format(sonar_distance))
     try:
     	#dump()
         cv_image = bridge.imgmsg_to_cv2(img_msg, "passthrough")
@@ -425,9 +435,12 @@ def image_callback(img_msg):
         print('ball color is: {} , bx = {} , by = {}'.format(ball_msg.label,ball_msg.size,ball_msg.stride))
 
         arrow_placeholder()
-
+        
    
   ######################### main if else code:
+
+        if sonar_distance>=0.5:
+        	dump()
 
         if laser_distance <0.23:
         	msg.linear.x=0
@@ -440,7 +453,7 @@ def image_callback(img_msg):
         		ball_control('green')
 
    
-        elif cx==200 and cy==400:  
+        elif cx==200 and cy==400 and laser_distance==float('inf'):  
 
             msg.linear.x=0
             msg.angular.z=0
@@ -459,7 +472,10 @@ def image_callback(img_msg):
              #time.sleep(0.2)
             pub.publish(msg)
             time.sleep(0.1)
- 
+        elif cx==200 and cy ==400 and laser_distance!=float('inf'): ### for ramp
+        	msg.linear.x=0.1
+        	msg.angular.z=0
+        	pub.publish(msg)
         else:
             controls(cx,cy)
         #if ry>76 and cx==200 and cy==400:
