@@ -21,7 +21,7 @@ import math
 ball_color_boundaries = [ ([0, 0, 220], [30, 30, 255]), ([0, 220, 0], [30, 255, 30])]
 
 bridge = CvBridge()
-pub = rospy.Publisher('/bot1_diffdrive_controller/cmd_vel', Twist, queue_size=10)
+pub = rospy.Publisher('/bot1_diffdrive_controller/cmd_vel', Twist, queue_size=1)
 msg_ball=MultiArrayDimension()
 msg=Twist()
 
@@ -235,7 +235,7 @@ def ball_control(color):
 		time.sleep(0.5)
 		flaps_close(1)
 			
-		rotate(-0.3, 2.5)
+		rotate(-0.3, 2.8)
          
 		
 	elif color == "green":
@@ -243,7 +243,7 @@ def ball_control(color):
 		fg_close()
 		flaps_open(1)
 		time.sleep(1)
-		go_forward.linear.x=0.193
+		go_forward.linear.x=0.191
 		pub.publish(go_forward)
 		fg_open()
 		flaps_close(30)
@@ -317,7 +317,7 @@ def controls(lx,ly):
 	msg.angular.z=-(error/1000) 
 	msg.linear.x=0.1-abs(error/2000)
 	pub.publish(msg)
-	#time.sleep(0.1)
+	
  
 ##########################################
 
@@ -359,12 +359,15 @@ def sonar_callback(sonar_msg):
 	sonar_distance=sonar_msg.range
 	#rospy.loginfo(direction)
 #########################		
+errord=0
 def ball_follow_control(bx):
+	global errord
 	error=(bx-200)
-	msg.angular.z=-(error/100) 
-	msg.linear.x=0.1-abs(error/2000)
+	msg.angular.z=-(error/20)-((error-errord)/27)
+ 	msg.linear.x=0.1-abs(error)/2000
 	pub.publish(msg)
 	#time.sleep(0.1)
+	errord=error
 	print(bx)
 
 ############################
@@ -452,7 +455,9 @@ def image_callback(img_msg):
         	elif ball_msg.label=='green':
         		ball_control('green')
 
-   
+        if ball_msg.label!='None':
+            ball_follow_control(ball_msg.size)
+   #
         elif cx==200 and cy==400 and laser_distance==float('inf'):  
 
             msg.linear.x=0
